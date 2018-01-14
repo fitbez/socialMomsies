@@ -6,7 +6,7 @@ import Col from "../components/Col";
 
 const About = () =>
   <div>
-    <Hero backgroundImage="/mom.jpeg">
+    <Hero backgroundImage="">
       <h1>SocialMomsies</h1>
       <h2>Where Moms are all welcome!</h2>
     </Hero>
