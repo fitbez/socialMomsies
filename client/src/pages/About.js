@@ -6,8 +6,8 @@ import Col from "../components/Col";
 
 const About = () =>
   <div>
-    <Hero backgroundImage="./mom.jpeg">
-      <h1>SocialMoms</h1>
+    <Hero backgroundImage="/mom.jpeg">
+      <h1>SocialMomsies</h1>
       <h2>Where Moms are all welcome!</h2>
     </Hero>
     <Container style={{ marginTop: 30 }}>
