@@ -1,0 +1,15 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #f44336cc;
+    background-color:white;
+    font-size: 23px;
+}
+.container-fluid {
+
+    margin-right: auto;
+    margin-left: auto;
+  background-color: #f44336cc;
+;
+}
