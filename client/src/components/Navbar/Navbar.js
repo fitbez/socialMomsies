@@ -30,7 +30,7 @@ const Navbar = props =>
           <Link to="/search">Explore</Link>
         </li>
         <li className={window.location.pathname === "/playgroup" ? "active" : ""}>
-          <Link to="/playgroup">Plagroups</Link>
+          <Link to="/playgroup">Playgroups</Link>
         </li>
 
         <li className={window.location.pathname === "/login" ? "active" : ""}>
@@ -38,9 +38,7 @@ const Navbar = props =>
         </li>
         <li
           className={
-            window.location.pathname === "/signup"
-              ? "active"
-              : ""
+            window.location.pathname === "/signup" ? "active" : ""
             }
             >
           <Link to="/signup">SignUp</Link>

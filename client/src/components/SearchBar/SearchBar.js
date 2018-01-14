@@ -64,15 +64,18 @@ class SearchBar extends React.Component {
     render() {
       return(
       <div className="SearchBar">
+
+        <div className="SearchBar-fields">
+          <input placeholder="Fun, Museum, Parks, Restaurants " onChange={this.handleTermChange} />
+          <input placeholder="City or Zip Code" onChange={this.handleLocationChange} />
+
+        </div>
         <div className="SearchBar-sort-options">
           <ul>
             {this.renderSortByOptions()}
           </ul>
         </div>
-        <div className="SearchBar-fields">
-          <input placeholder="Fun, Museum, Parks, Restaurants " onChange={this.handleTermChange} />
-          <input placeholder="City or Zip Code" onChange={this.handleLocationChange} />
-        </div>
+
         <div className="SearchBar-submit">
           <a onClick={this.handleSearch}> Search powered by Yelp </a>
         </div>
