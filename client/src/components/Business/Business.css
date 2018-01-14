@@ -1,8 +1,9 @@
 .Business {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 50px;
+  justify-content: space-between;*/
+  width: 5px;
+  height:5px;
   margin:0px;
 }
 /*.z-depth-4, .modal {
@@ -11,7 +12,7 @@
     box-shadow: 5px;
 }*/
 .Business .image-container {
-  height: 20px;
+  height: 5px;
   margin-bottom: 1px;
 }
 

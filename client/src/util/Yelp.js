@@ -2,7 +2,7 @@ const apiKey = 'pN4w-OgwAeDi2cuuu2zrLfbeWMSQaHl_bB12vVQ1qxNlo7FSGMxIaHFhaSKXALHQ
 
 const Yelp = {
   search(term, location, sortBy) {
-    return fetch('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=' + term + '&location=' + location +'&sort_by=' + sortBy, {
+    return fetch('/https://api.yelp.com/v3/businesses/search?term=' + term + '&location=' + location +'&sort_by=' + sortBy + 'GoodForKids&ed_attrs', {
       headers: {
         Authorization: `Bearer ${apiKey}`
       }
@@ -24,6 +24,7 @@ const Yelp = {
             rating: business.rating,
             reviewCount: business.review_count
           };
+
         });
       }
     });

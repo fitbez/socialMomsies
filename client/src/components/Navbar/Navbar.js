@@ -8,7 +8,7 @@ const Navbar = props =>
     <div className="container-fluid">
       <div className="navbar-header">
         <Link className="navbar-brand" to="/">
-        SocialMoms
+        SocialMomsies
         </Link>
       </div>
       <ul className="nav navbar-nav ">
@@ -30,7 +30,7 @@ const Navbar = props =>
           <Link to="/search">Explore</Link>
         </li>
         <li className={window.location.pathname === "/playgroup" ? "active" : ""}>
-          <Link to="/">Plagroups</Link>
+          <Link to="/playgroup">Plagroups</Link>
         </li>
 
         <li className={window.location.pathname === "/login" ? "active" : ""}>

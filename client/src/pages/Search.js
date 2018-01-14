@@ -26,7 +26,7 @@ class Search extends Component {
   render() {
     return (
       <div className="App">
-        
+
         <SearchBar search={this.searchYelp}/>
         <BusinessList businesses={this.state.businesses} />
       </div>

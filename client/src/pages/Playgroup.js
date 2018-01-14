@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 // import Yelp from './util/Yelp.js';
 
-class Discover extends Component {
-//   state = {
-//     image: "",
-//     match: false,
-//     matchCount: 0
-  };
+class Playgroup extends Component {
 //
 //   // When the component mounts, load the next dog to be displayed
 //   componentDidMount() {
@@ -47,23 +42,17 @@ class Discover extends Component {
 //       .catch(err => console.log(err));
 //   };
 //
-//   render() {
-//     return (
-//       <div>
-//         <h1 className="text-center">Make New Friends</h1>
-//         <h3 className="text-center">
-//           Thumbs up on any pups youd like to meet!
-//         </h3>
-//         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
-//         <h1 className="text-center">
-//           Made friends with {this.state.matchCount} pups so far!
-//         </h1>
-//         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-//           Yay! That Pup Liked You Too!!!
-//         </Alert>
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    return (
+      <div>
+        <h1 className="text-center">Make New Friends</h1>
+        <h3 className="text-center">
+          Meet up for Moms and their little ones!
+        </h3>
+      
+      </div>
+    );
+  }
+}
 
-export default Discover;
+export default Playgroup;
