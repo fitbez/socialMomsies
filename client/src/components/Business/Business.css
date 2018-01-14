@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 20px;
-  margin:20px;
+  width: 50px;
+  margin:0px;
 }
 /*.z-depth-4, .modal {
     width: 150px;
