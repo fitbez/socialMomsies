@@ -64,11 +64,10 @@ class SearchBar extends React.Component {
     render() {
       return(
       <div className="SearchBar">
-
         <div className="SearchBar-fields">
-          <input placeholder="Fun, Museum, Parks, Restaurants " onChange={this.handleTermChange} />
+          <input placeholder="Fun, Parks, Restaurants, etc." onChange={this.handleTermChange} />
           <input placeholder="City or Zip Code" onChange={this.handleLocationChange} />
-
+          
         </div>
         <div className="SearchBar-sort-options">
           <ul>

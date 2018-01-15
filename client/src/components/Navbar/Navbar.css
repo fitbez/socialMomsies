@@ -1,5 +1,7 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
+  background-color:white;
+  font-size: 20px;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #f44336cc;

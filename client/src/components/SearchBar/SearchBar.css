@@ -11,14 +11,14 @@
 .SearchBar-sort-options ul {
   display: flex;
   justify-content: center;
-  margin-bottom: 2.22rem;
+  margin-bottom: 2.2rem;
   color: white;
 }
 
 .SearchBar-sort-options li {
-  cursor: pointer;
-  width: 22.33rem;
-  border-bottom: 1px solid black;
+  cursor:all-scroll;
+  width: 23rem;
+  border-bottom: 0px solid #f44336cc;
   padding: 0 2rem ;
   line-height: 1.13;
   text-align: center;
@@ -29,13 +29,13 @@
 }
 
 .SearchBar-sort-options li:hover {
-  color: black;
+  color: #f44336cc;
 }
 
 .SearchBar-sort-options li.active,
 .SearchBar-sort-options li.active:hover {
-  border-bottom: 1px solid black;
-  color: black;
+  border-bottom: 0px solid #f44336cc;
+  color: #f44336cc;
 }
 
 .SearchBar-fields {
@@ -96,7 +96,5 @@
     margin-right: 0;
     margin-bottom: .86rem;
   }
-  .yelp{
 
-  }
 }
