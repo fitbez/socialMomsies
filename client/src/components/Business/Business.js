@@ -11,7 +11,7 @@ class Business extends React.Component {
     </div>
     <div className="panel panel-danger">
       <div className="panel-heading">
-        <div className="panel-body">
+        <div className="panel-body">google map?
           <div className="responsive">
             <div className="gallery">
                 <a target="_blank" href={this.props.business.url}>
