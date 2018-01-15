@@ -8,7 +8,7 @@ const About = () =>
   <div>
     <Hero backgroundImage="">
       <h1>SocialMomsies</h1>
-      <h2>Where Moms are all welcome!</h2>
+      <h2>Where all MOMs are Welcome!</h2>
     </Hero>
     <Container style={{ marginTop: 30 }}>
       <Row>
