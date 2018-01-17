@@ -52,3 +52,4 @@ router.post('/logout', (req, res) => {
 		return res.json({ msg: 'no user to log out!' })
 	}
 })
+module.exports = router
