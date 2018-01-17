@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const models = require('../db/models');
 const passport = require('../passport');
 
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 router.get(
 	'/google/callback',
 	passport.authenticate('google', {
-		successRedirect: 'http://localhost:3000/search',
-		failureRedirect: 'http://localhost:3000/login'
-	});
+		successRedirect: './search',
+		failureRedirect: './login'
+	})
 );
 
 // this route is just used to get the user basic info

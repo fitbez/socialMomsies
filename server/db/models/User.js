@@ -1,5 +1,5 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
 	email: {
@@ -20,4 +20,12 @@ var UserSchema = new Schema({
 	}],
 });
 
-module.exports = mongoose.model("User", UserSchema);
+var User;
+
+if (mongoose.models.User) {
+  User = mongoose.model('User');
+} else {
+  User = mongoose.model('User', UserSchema);
+}
+
+module.exports = User;
