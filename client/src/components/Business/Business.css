@@ -8,7 +8,7 @@
   color: #f44336cc;
 }*/
 div.gallery {
-    border: 3px solid #ccc;
+    border: 3px solid #a7874b;
 
 }
 
@@ -17,7 +17,7 @@ div.gallery:hover {
 }
 
 div.gallery img {
-  width: 360px;
+  width: 342px;
   height: 350px;
 }
 
@@ -33,7 +33,7 @@ div.desc {
 .responsive {
     padding: 0 6px;
     float: left;
-  width: 370px;
+  width: 360px;
 }
 
 @media only screen and (max-width: 700px){
@@ -45,7 +45,7 @@ div.desc {
 
 @media only screen and (max-width: 500px){
     .responsive {
-        width: 50%;
+        width: 100%;
     }
 }
 

@@ -61,13 +61,27 @@ class SearchBar extends React.Component {
     return <li className={this.getSortByClass(sortByOptionValue)} onClick={this.handleSortByChange.bind(this, sortByOptionValue)}  key={sortByOptionValue}>{sortByOption}</li>;
     });
   }
+
     render() {
       return(
       <div className="SearchBar">
         <div className="SearchBar-fields">
-          <input placeholder="Fun, Parks, Restaurants, etc." onChange={this.handleTermChange} />
-          <input placeholder="City or Zip Code" onChange={this.handleLocationChange} />
-          
+          <label>
+         <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
+          <option value="">Select</option>
+           <option value="Kid-Friendly Restaurants">Family-Friendly Restaurants</option>
+           <option value="Splash Parks">Splash Parks</option>
+           <option value="Indoor Playgrounds">Indoor Playgrounds</option>
+           <option value="Outdoor Playgrounds">Outdoor Playgrounds</option>
+           <option value="Museums">Museums</option>
+           <option value="Kid-Activities">Kid Events</option>
+           <option value="Schools">Schools</option>
+           <option value="Hospitals">Hospitals</option>
+         </select>
+       </label>
+
+          <input placeholder="City or Zip Code"  term={this.state.value} onChange={this.handleLocationChange} />
+
         </div>
         <div className="SearchBar-sort-options">
           <ul>
@@ -76,12 +90,12 @@ class SearchBar extends React.Component {
         </div>
 
         <div className="SearchBar-submit">
-          <a onClick={this.handleSearch}> Search powered by Yelp </a>
+          <a onClick={this.handleSearch}> Search powered by Yelp</a>
         </div>
 
       </div>
       );
     }
-};
+}
 
 export default SearchBar;

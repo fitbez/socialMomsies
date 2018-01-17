@@ -5,6 +5,14 @@ import "./Navbar.css";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props =>
   <nav className="navbar navbar-default">
+
+  {/*
+    <a className="navbar-brand" href="#">Navbar</a>
+     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+       <span className="navbar-toggler-icon"></span>
+     </button>
+     <div className="collapse navbar-collapse" id="collapsibleNavbar">
+ */}
     <div className="container-fluid">
       <div className="navbar-header">
         <Link className="navbar-brand" to="/">
@@ -33,8 +41,8 @@ const Navbar = props =>
           <Link to="/playgroup">Playgroups</Link>
         </li>
 
-        <li className={window.location.pathname === "/login" ? "active" : ""}>
-          <Link to="/login">Login</Link>
+    <li className={window.location.pathname === "/login" ? "active" : ""}>
+          <Link to="/login"  data-toggle="modal" data-target="#myModal">Login</Link>
         </li>
         <li
           className={

@@ -14,8 +14,9 @@ const App = () =>
     <div>
       <Navbar />
       <Wrapper>
+
       <Route exact path="/" component={About} />
-      <Route exact path="/about" component={About} />
+      <Route exact path="/about" component={Search} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/playgroup" component={Playgroup} />
       <Route exact path="/login" component={Login} />

@@ -42,8 +42,19 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2.88rem;
-}
 
+}
+.Search-term{
+  width: 400px;
+  height:40px;
+  padding: .66rem 1rem;
+  margin-right: 2.22rem;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  background-color:white;
+}
 .SearchBar-fields input {
   width: 400px;
   height:40px;
@@ -77,11 +88,15 @@
   background-color: #a7874b;
 }
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width:560px) {
   .SearchBar {
+    width: auto;
     background-image: url('./kid.jpg');
   }
-
+  .Search-term{
+    margin-right: 0;
+    margin-bottom: .86rem;
+  }
   .SearchBar-sort-options ul {
     margin-left: 2rem;
     margin-right: 2rem;
