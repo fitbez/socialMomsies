@@ -26,3 +26,6 @@ const userSchema = new Schema({
 	// firstName: { type: String },
 	// lastName: { type: String }
 })
+// Create reference to User & export
+const User = mongoose.model('User', userSchema)
+module.exports = User
