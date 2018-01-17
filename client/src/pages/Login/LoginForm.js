@@ -61,9 +61,10 @@ class Login extends Component {
             />
             <button onClick={this.handleSubmit}>Login</button>
           </form>
-          <a href="/auth/google">
-          <img src={googleButton} alt="sign into Google Button" />
-         </a>
+          <a href="http://localhost:8080/auth/google">
+							{/*<GoogleButton /> */}
+							<img src={googleButton} alt="sign into Google Button" />
+						</a>
         </div>
       )
     }
