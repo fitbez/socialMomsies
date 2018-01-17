@@ -7,8 +7,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
 router.get(
 	'/google/callback',
 	passport.authenticate('google', {
-		successRedirect: '/',
-		failureRedirect: '/login'
+		successRedirect: 'http://localhost:3000',
+		failureRedirect: 'http://localhost:3000/login'
 	})
 )
 
