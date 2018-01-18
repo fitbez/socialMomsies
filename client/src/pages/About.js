@@ -6,10 +6,11 @@ import Col from "../components/Col";
 
 const About = () =>
   <div>
+
     <Hero backgroundImage={"mom.jpeg"}>
       <h1>SocialMomsies</h1>
       <h2>Where all MOMs are Welcome!</h2>
-    </Hero>
+    </Hero>*
     <Container style={{ marginTop: 20 }}>
       <Row>
         <Col size="md-12">

@@ -11,12 +11,13 @@ const Yelp = {
   }).then(jsonResponse => {
     if (jsonResponse.businesses) {
       return jsonResponse.businesses.map(business => {
+
         return {
             id: business.id,
             url:business.url,
             imageSrc: business.image_url,
             name: business.name,
-              phone:business.phone,
+            phone:business.phone,
             address: business.location.address1,
             city: business.location.city,
             state: business.location.state,

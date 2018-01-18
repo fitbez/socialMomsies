@@ -8,13 +8,16 @@ const strategy = new GoogleStrategy(
 		callbackURL: '/auth/google/callback'
 	},
 	function(token, tokenSecret, profile, done) {
+		process.nextTick(function(){
 		// testing
 		console.log('===== GOOGLE PROFILE =======');
 		console.log(profile);
+		console.log(profile.emails, 'herhehrehrehreeererere');
 		console.log('======== END ===========');
 		// code
-		const { id, name, email, photos } = profile;
-		User.findOne({ email: email }, (err, userMatch) => {
+		const { id, name, emails, photos } = profile;
+
+		User.findOne({ email: emails[0].value }, (err, userMatch) => {
 			// handle errors here:
 			if (err) {
 				console.log('Error occurred while trying to find user by email');
@@ -27,13 +30,12 @@ const strategy = new GoogleStrategy(
 			} else {
 				// if no user in our db, create a new user with that email
 				console.log('====== PRE SAVE =======');
-				console.log(email);
 				console.log(profile);
 				console.log('====== post save ....');
 				const newGoogleUser = new User({
-					email: email,
+					email: emails[0].value,
 					name: name.givenName + ' ' + name.familyName,
-					image: ((photos && photos.length && photos.length > 0) ? photos[0] : 'http://shashgrewal.com/wp-content/uploads/2015/05/default-placeholder-300x300.png'),
+					image: ((photos && photos.length && photos.length > 0) ? photos[0].value : 'http://shashgrewal.com/wp-content/uploads/2015/05/default-placeholder-300x300.png'),
 				});
 				// save this user
 				newGoogleUser.save((err, savedUser) => {
@@ -47,6 +49,7 @@ const strategy = new GoogleStrategy(
 				}); // closes newGoogleUser.save
 			}
 		}); // closes User.findONe
+	})
 	}
 );
 
