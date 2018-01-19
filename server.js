@@ -6,6 +6,8 @@ if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config();
 
 const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -14,6 +16,8 @@ const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./server/db'); // loads our connection to the mongo database
 const passport = require('./server/passport');
 const app = express();
+const server = http.createServer(app); // http server object wrapper for use with socket.io
+const io = socketIO(server); // instantiate socket io for the app using http server wrapper
 const PORT = process.env.PORT || 3001;
 
 // ===== Middleware ====
@@ -81,6 +85,20 @@ app.use(function(err, req, res, next) {
 })
 
 // ==== Starting Server =====
-app.listen(PORT, () => {
+server.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`);
+});
+
+io.on('connection', client => {
+	
+	client.on('new message', function(msg) {
+		var messageData = {
+			id: client.id,
+			message: msg,
+		};
+
+		// Relay the message to all clients
+		io.emit('chat message', messageData);
+	});
+		
 });
