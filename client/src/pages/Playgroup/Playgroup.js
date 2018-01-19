@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col, DropdownButton, MenuItem, FormGroup, InputGroup, FormControl, Button, Panel, Nav, NavItem, NavDropdown, } from 'react-bootstrap';
+import { Grid, Row, Col, MenuItem, Panel, Nav, NavItem, NavDropdown, } from 'react-bootstrap';
 import { PlaygroupChat } from '../../components/PlayGroups';
 
 import './Playgroup.css';
@@ -38,16 +38,28 @@ class Playgroup extends Component {
 		}
 	};
 	
+	handleNavSelect = key => {
+		if (key === 'search' || key === 'new') {
+			this.setState({display: key});
+		} else {
+			this.setState({display: 'group'});
+		}
+	};
+	
   render() {
     return (
       <Grid>
 				<Row>
 					<Col md={12}>
 					
-						<div ref={(element) => this.panelElement = element}>
-						<Panel style={{height: this.state.height + 'px'}}>
+						<div
+							className='panel panel-default'
+							id='main-panel'
+							style={{height: this.state.height + 'px', overflowY: 'scroll'}}
+							ref={(element) => this.panelElement = element}
+						>
 							<Panel.Heading>
-								<Nav bsStyle="pills" activeKey={this.state.display}>
+								<Nav bsStyle="pills" activeKey={this.state.display} onSelect={this.handleNavSelect}>
 									<NavDropdown eventKey="group" title="My Playgroups" id="playgroupSelect">
 										<MenuItem eventKey="1">Group 1</MenuItem>
 										<MenuItem eventKey="2">Group 2</MenuItem>
@@ -63,10 +75,10 @@ class Playgroup extends Component {
 							</Panel.Heading>
 								
 							<Panel.Body>
-								{(this.state.display === 'group') ? <PlaygroupChat /> : null}
+								{this.state.display === 'group' && <PlaygroupChat />}
+								{this.state.display === 'search' && <p>search</p>}
+								{this.state.display === 'new' && <p>new</p>}
 							</Panel.Body>
-							
-						</Panel>
 						</div>
 						
 					</Col>
