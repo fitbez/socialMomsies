@@ -96,14 +96,13 @@ class Weather extends Component {
     }
     return (
       <div>
-        <form onSubmit={this.searchLocation}>
-          <input
-            type="text"
-            value={this.state.location}
-            placeholder="Enter Location"
-            onChange={this.handleChange}
-            required
-          />
+        <form onSubmit={this.searchLocation}   onChange={this.handleChange}>
+
+          <select>
+          <option value="">Select city</option>
+          <option value="Arlington">Arlington</option>
+          <option value="New York">New York</option>
+        </select>
           <button type="Submit">Get the weather today!</button>
           <p />
         </form>
