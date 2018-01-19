@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, MenuItem, Panel, Nav, NavItem, NavDropdown, } from 'react-bootstrap';
-import { PlaygroupChat } from '../../components/PlayGroups';
+import { PlaygroupChat, PlaygroupSearch } from '../../components/PlayGroups';
 
 import './Playgroup.css';
 
@@ -44,7 +44,7 @@ class Playgroup extends Component {
 							</Panel.Heading>
 								
 							{this.state.display === 'group' && <PlaygroupChat group={this.state.group} />}
-							{this.state.display === 'search' && <Panel.Body>search</Panel.Body>}
+							{this.state.display === 'search' && <PlaygroupSearch />}
 							{this.state.display === 'new' && <Panel.Body>new</Panel.Body>}
 						</Panel>
 						
