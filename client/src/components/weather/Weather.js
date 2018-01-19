@@ -83,14 +83,14 @@ class Weather extends Component {
              {weatherInfo.name}{" "}is{" "}
 
             <span>{(weatherInfo.main.temp)} &deg;F</span>
-          </h1> 
+          </h1>
             {/* {weatherInfo.weather.map(weatherData => (
          // <p>
             //   {weatherData.main}
             //
             //   <span> : {weatherData.description}</span>
-            // </p>*/}
-          ))}
+            // </p>
+          ))}*/}
         </div>
       );
     }
