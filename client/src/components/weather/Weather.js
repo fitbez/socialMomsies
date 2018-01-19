@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Weather.css";
 
+
+
 class ErrorMessage extends Component {
   render() {
     return <p class={this.props.type}>{this.props.message}</p>;
@@ -11,9 +13,9 @@ class Weather extends Component {
     super(props);
     this.state = {
       data: {},
-      location: "Arlington",
+      location: " ",
       error: false,
-      message: ""
+      message: "enter a city"
     };
     this.apiKey = "759d7c371a74f2f1fdd190a6d93c0aea"; // Your Openweathermap API key here , get your key from here http://home.openweathermap.org/users/sign_up
     this.searchLocation = this.searchLocation.bind(this);
@@ -36,16 +38,17 @@ class Weather extends Component {
     let _this = this;
     let url =
       "//api.openweathermap.org/data/2.5/weather?q=" +
-      this.state.location +
+      this.state.location + "&units=imperial" +
       "&appid=" +
-      this.apiKey;
+      this.apiKey
+
     fetch(url)
       .then(function(response) {
         if (response.ok) {
           return response.json();
         }
         _this.setState({
-          error: true,
+          error:false,
           message: "City Not Found"
         });
       })
@@ -76,13 +79,15 @@ class Weather extends Component {
     ) {
       partialTemplate = (
         <div>
-          <p>
-            Temperature : {weatherInfo.name}{" "}
-            <span>{(weatherInfo.main.temp / 10).toFixed(2)} C</span>
-          </p>
+          <p> Hello! The temperature in{" "}
+             {weatherInfo.name}{" "}is{" "} 
+
+            <span>{(weatherInfo.main.temp)} &deg;F</span>
+          </p> and
           {weatherInfo.weather.map(weatherData => (
             <p>
               {weatherData.main}
+
               <span> : {weatherData.description}</span>
             </p>
           ))}
@@ -95,7 +100,7 @@ class Weather extends Component {
           <input
             type="text"
             value={this.state.location}
-            placeholder="Enter Location details (London,UK)..."
+            placeholder="Enter Location"
             onChange={this.handleChange}
             required
           />
