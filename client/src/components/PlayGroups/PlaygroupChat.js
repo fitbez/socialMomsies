@@ -74,7 +74,7 @@ class PlaygroupChat extends Component {
 	render() {
 		return [
 			<ListGroup key='main-body'>
-				<ListGroupItem style={{padding: '10px 15px 10px',}}>
+				<ListGroupItem>
 					<h4>{this.state.group}</h4>
 				</ListGroupItem>
 				

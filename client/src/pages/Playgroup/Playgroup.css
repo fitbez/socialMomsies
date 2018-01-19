@@ -1,3 +1,7 @@
 #main-panel {
 	margin-top: 30px;
 }
+
+.panel-heading {
+	border-bottom: none;
+}
