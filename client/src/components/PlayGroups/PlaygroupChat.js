@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from 'socket.io-client';
-import { FormGroup, InputGroup, FormControl, Button, } from 'react-bootstrap';
+import { Panel, ListGroup, ListGroupItem, FormGroup, InputGroup, FormControl, Button, } from 'react-bootstrap';
 import { Message } from './Message.js';
 
 class PlaygroupChat extends Component {
@@ -38,7 +38,7 @@ class PlaygroupChat extends Component {
 		});
 		
 		const top = this.messagesElement.getBoundingClientRect().top + window.scrollY;
-		const panelHeight = Math.max((window.innerHeight - top) - 125, 200);
+		const panelHeight = Math.max((window.innerHeight - top) - 100, 200);
 		if (this.state.height !== panelHeight) {
 			this.setState({height: panelHeight});
 		}
@@ -52,7 +52,6 @@ class PlaygroupChat extends Component {
 	
 	sendMessage = () => {
 		this.socket.emit('new message', this.state.group, this.state.messageInput);
-		
 		this.setState({ messageInput: '', });
 	};
 	
@@ -64,7 +63,7 @@ class PlaygroupChat extends Component {
 		if (this.state.windowHeight !== window.innerHeight) {
 			if (this.messagesElement) {
 					const top = this.messagesElement.getBoundingClientRect().top + window.scrollY;
-					const panelHeight = Math.max((window.innerHeight - top) - 125, 200);
+					const panelHeight = Math.max((window.innerHeight - top) - 100, 200);
 					this.setState({windowHeight: window.innerHeight, height: panelHeight});
 			} else {
 				this.setState({windowHeight: window.innerHeight});
@@ -73,18 +72,22 @@ class PlaygroupChat extends Component {
 	};
 	
 	render() {
-		return (
-			<div>
-				<h4>{this.state.group}</h4><hr />
+		return [
+			<ListGroup key='main-body'>
+				<ListGroupItem style={{padding: '10px 15px 10px',}}>
+					<h4>{this.state.group}</h4>
+				</ListGroupItem>
 				
-				<div
-					style={{height: this.state.height + 'px', overflowY: 'scroll'}}
+				<div className='list-group-item panel-group'
+					style={{height: this.state.height + 'px', padding: '10px 15px', overflowY: 'scroll'}}
 					ref={(element) => this.messagesElement = element}
 				>
-					{ this.state.messages.map( (message, i) => (<Message key={i} messageBody={message} /> )) }
-				</div><br />
+					{this.state.messages.map((message, i) => (<Message key={i} messageBody={message} />))}
+				</div>
+			</ListGroup>,
 				
-				<FormGroup>
+			<Panel.Body key='input' style={{padding: '0px',}}>
+				<FormGroup style={{margin: '15px'}}>
 						<InputGroup>
 							<FormControl type="text" id="messageInput" value={this.state.messageInput} onChange={this.onMessageInputChange} />
 							<InputGroup.Button>
@@ -93,8 +96,8 @@ class PlaygroupChat extends Component {
 						</InputGroup>
 					<FormControl.Feedback />
 				</FormGroup>
-			</div>
-		);
+			</Panel.Body>,
+		];
 	}
 	
 }

@@ -22,19 +22,17 @@ class Playgroup extends Component {
   render() {
     return (
       <Grid>
+				{this.props['test-prop']}
 				<Row>
 					<Col md={12}>
 					
-						<div
-							className='panel panel-default'
-							id='main-panel'
-						>
-							<Panel.Heading>
-								<Nav bsStyle="pills" activeKey={this.state.display} onSelect={this.handleNavSelect}>
+						<Panel id='main-panel' bsStyle='default'>
+							<Panel.Heading style={{padding: '10px 0px 0px',}}>
+								<Nav bsStyle="tabs" activeKey={this.state.display} onSelect={this.handleNavSelect} style={{padding: '0px 15px'}}>
 									<NavDropdown eventKey="group" title="My Playgroups" id="playgroupSelect">
-										<MenuItem eventKey="1">Group 1</MenuItem>
-										<MenuItem eventKey="2">Group 2</MenuItem>
-										<MenuItem eventKey="3">Group 3</MenuItem>
+										<MenuItem active={this.state.group === "1"} eventKey="1">Group 1</MenuItem>
+										<MenuItem active={this.state.group === "2"} eventKey="2">Group 2</MenuItem>
+										<MenuItem active={this.state.group === "3"} eventKey="3">Group 3</MenuItem>
 									</NavDropdown>
 									<NavItem eventKey="search">
 										Find Playgroups
@@ -45,12 +43,10 @@ class Playgroup extends Component {
 								</Nav>
 							</Panel.Heading>
 								
-							<Panel.Body>
-								{this.state.display === 'group' && <PlaygroupChat group={this.state.group} />}
-								{this.state.display === 'search' && <p>search</p>}
-								{this.state.display === 'new' && <p>new</p>}
-							</Panel.Body>
-						</div>
+							{this.state.display === 'group' && <PlaygroupChat group={this.state.group} />}
+							{this.state.display === 'search' && <Panel.Body>search</Panel.Body>}
+							{this.state.display === 'new' && <Panel.Body>new</Panel.Body>}
+						</Panel>
 						
 					</Col>
 				</Row>
