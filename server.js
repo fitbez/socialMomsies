@@ -89,16 +89,27 @@ server.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`);
 });
 
-io.on('connection', client => {
+const playgroups = io.of('/playgroups');
+playgroups.on('connection', client => {
 	
-	client.on('new message', function(msg) {
+	client.on('join group', group => {
+		let rooms = Object.keys(client.rooms);
+		rooms.forEach(room => {
+			if (room !== client.id) client.leave(room);
+		});
+		
+		client.join(group);
+	});
+	
+	client.on('new message', (group, msg) => {
 		var messageData = {
 			id: client.id,
+			group: group,
 			message: msg,
 		};
 
 		// Relay the message to all clients
-		io.emit('chat message', messageData);
+		playgroups.in(group).emit('chat message', messageData);
 	});
 		
 });

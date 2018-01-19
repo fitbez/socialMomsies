@@ -11,19 +11,29 @@ class PlaygroupChat extends Component {
 		this.state = {
 			messages: [],
 			messageInput: '',
+			group: props.group,
 		};
 		
-		this.socket = io();
+		this.socket = io('/playgroups');
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		if (this.state.group !== nextProps.group) {
+			this.socket.emit('join group', nextProps.group);
+			this.setState({ group: nextProps.group, messages: [], });
+		}
 	}
 	
 	componentDidMount() {
+		this.socket.emit('join group', this.state.group);
+		
 		this.socket.on('chat message', (messageData) => {
 			this.setState({ messages: this.state.messages.concat(messageData.message) });
 		});
 	}
 	
 	sendMessage = () => {
-		this.socket.emit('new message', this.state.messageInput);
+		this.socket.emit('new message', this.state.group, this.state.messageInput);
 		
 		this.setState({ messageInput: '', });
 	};

@@ -7,7 +7,7 @@ import './Playgroup.css';
 class Playgroup extends Component {
 	
 	state = {
-		display: 'group',
+		display: 'search',
 		windowHeight: window.innerHeight,
 		height: 0,
 	}
@@ -40,9 +40,9 @@ class Playgroup extends Component {
 	
 	handleNavSelect = key => {
 		if (key === 'search' || key === 'new') {
-			this.setState({display: key});
+			this.setState({display: key, group: null});
 		} else {
-			this.setState({display: 'group'});
+			this.setState({display: 'group', group: key});
 		}
 	};
 	
@@ -75,7 +75,7 @@ class Playgroup extends Component {
 							</Panel.Heading>
 								
 							<Panel.Body>
-								{this.state.display === 'group' && <PlaygroupChat />}
+								{this.state.display === 'group' && <PlaygroupChat group={this.state.group} />}
 								{this.state.display === 'search' && <p>search</p>}
 								{this.state.display === 'new' && <p>new</p>}
 							</Panel.Body>
