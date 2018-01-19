@@ -2,6 +2,16 @@
 	margin-top: 30px;
 }
 
-.panel-heading {
-	border-bottom: none;
+.panel-default > .panel-heading {
+	border: none;
+	background: #f6695e;
+	background-color: #f6695e;
+}
+
+.panel-default > .panel-heading > .nav > li > a {
+	color: #5e686f;
+	font-size: 18px;
+}
+.panel-default > .panel-heading > .nav > .active > a {
+	color: #f6695e !important;
 }

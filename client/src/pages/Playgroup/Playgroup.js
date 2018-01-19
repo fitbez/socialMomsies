@@ -30,9 +30,9 @@ class Playgroup extends Component {
 							<Panel.Heading style={{padding: '10px 0px 0px',}}>
 								<Nav bsStyle="tabs" activeKey={this.state.display} onSelect={this.handleNavSelect} style={{padding: '0px 15px'}}>
 									<NavDropdown eventKey="group" title="My Playgroups" id="playgroupSelect">
-										<MenuItem active={this.state.group === "1"} eventKey="1">Group 1</MenuItem>
-										<MenuItem active={this.state.group === "2"} eventKey="2">Group 2</MenuItem>
-										<MenuItem active={this.state.group === "3"} eventKey="3">Group 3</MenuItem>
+										<MenuItem active={this.state.group === "Playgroup 1"} eventKey="Playgroup 1">Playgroup 1</MenuItem>
+										<MenuItem active={this.state.group === "Playgroup 2"} eventKey="Playgroup 2">Playgroup 2</MenuItem>
+										<MenuItem active={this.state.group === "Playgroup 3"} eventKey="Playgroup 3">Playgroup 3</MenuItem>
 									</NavDropdown>
 									<NavItem eventKey="search">
 										Find Playgroups

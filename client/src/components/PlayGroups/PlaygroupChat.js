@@ -38,7 +38,7 @@ class PlaygroupChat extends Component {
 		});
 		
 		const top = this.messagesElement.getBoundingClientRect().top + window.scrollY;
-		const panelHeight = Math.max((window.innerHeight - top) - 100, 200);
+		const panelHeight = Math.max((window.innerHeight - top) - 90, 200);
 		if (this.state.height !== panelHeight) {
 			this.setState({height: panelHeight});
 		}
@@ -51,8 +51,10 @@ class PlaygroupChat extends Component {
 	}
 	
 	sendMessage = () => {
-		this.socket.emit('new message', this.state.group, this.state.messageInput);
-		this.setState({ messageInput: '', });
+		if (this.state.messageInput && this.state.messageInput.length && this.state.messageInput.trim().length > 0) {
+			this.socket.emit('new message', this.state.group, this.state.messageInput.trim());
+			this.setState({ messageInput: '', });
+		}
 	};
 	
 	onMessageInputChange = event => {
@@ -63,7 +65,7 @@ class PlaygroupChat extends Component {
 		if (this.state.windowHeight !== window.innerHeight) {
 			if (this.messagesElement) {
 					const top = this.messagesElement.getBoundingClientRect().top + window.scrollY;
-					const panelHeight = Math.max((window.innerHeight - top) - 100, 200);
+					const panelHeight = Math.max((window.innerHeight - top) - 90, 200);
 					this.setState({windowHeight: window.innerHeight, height: panelHeight});
 			} else {
 				this.setState({windowHeight: window.innerHeight});
@@ -79,7 +81,12 @@ class PlaygroupChat extends Component {
 				</ListGroupItem>
 				
 				<div className='list-group-item panel-group'
-					style={{height: this.state.height + 'px', padding: '10px 15px', overflowY: 'scroll'}}
+					style={{
+						height: this.state.height + 'px',
+						padding: '10px 15px',
+						overflowY: 'scroll',
+						background: '#dcdcdc',
+					}}
 					ref={(element) => this.messagesElement = element}
 				>
 					{this.state.messages.map((message, i) => (<Message key={i} messageBody={message} />))}
@@ -87,7 +94,7 @@ class PlaygroupChat extends Component {
 			</ListGroup>,
 				
 			<Panel.Body key='input' style={{padding: '0px',}}>
-				<FormGroup style={{margin: '15px'}}>
+				<FormGroup style={{margin: '10px 15px'}}>
 						<InputGroup>
 							<FormControl type="text" id="messageInput" value={this.state.messageInput} onChange={this.onMessageInputChange} />
 							<InputGroup.Button>

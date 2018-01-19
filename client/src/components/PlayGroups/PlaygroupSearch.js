@@ -8,13 +8,18 @@ class PlaygroupSearch extends Component {
 		super(props);
 		
 		this.state = {
-			searchInput: '',
+			nameInput: '',
+			cityInput: '',
 			results: [{name: 'Playgroup 1', city: 'Arlington, VA', memberCount: 6}, {name: 'Playgroup 2', city: 'Washington, DC', memberCount: 3},],
 		};
 	}
 	
-	onSearchInputChange = event => {
-		this.setState({ searchInput: event.target.value, });
+	onNameInputChange = event => {
+		this.setState({ nameInput: event.target.value, });
+	};
+	
+	onCityInputChange = event => {
+		this.setState({ cityInput: event.target.value, });
 	};
 	
 	render() {
@@ -27,14 +32,14 @@ class PlaygroupSearch extends Component {
 								<InputGroup.Addon>
 									Name
 								</InputGroup.Addon>
-								<FormControl type="text" value={this.state.searchInput} onChange={this.onSearchInputChange} />
+								<FormControl type="text" value={this.state.nameInput} onChange={this.onNameInputChange} />
 							</InputGroup>
 							{' '}
 							<InputGroup>
 								<InputGroup.Addon>
 									City
 								</InputGroup.Addon>
-								<FormControl type="text" value={this.state.searchInput} onChange={this.onSearchInputChange} />
+								<FormControl type="text" value={this.state.cityInput} onChange={this.onCityInputChange} />
 							</InputGroup>
 							<FormControl.Feedback />
 							{' '}
@@ -44,7 +49,7 @@ class PlaygroupSearch extends Component {
 				</ListGroupItem>
 			</ListGroup>,
 				
-			<Panel.Body className='panel-group' key='results' style={{margin: '0px'}}>
+			<Panel.Body className='panel-group' key='results' style={{margin: '0px', background: '#dcdcdc',}}>
 				{this.state.results.map((result, i) => <Result key={i} {...this.props} name={result.name} city={result.city} memberCount={result.memberCount || 0} />)}
 			</Panel.Body>,
 		];
