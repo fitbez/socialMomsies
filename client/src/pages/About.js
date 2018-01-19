@@ -1,8 +1,5 @@
 import React from "react";
 import Hero from "../components/Hero";
-import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
 import googleButton from './Login/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
 import './about.css';
 const About = () =>

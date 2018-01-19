@@ -3,6 +3,7 @@ const LocalStrategy = require('./localStrategy')
 const GoogleStrategy = require('./googleStrategy')
 const User = require('../db/models/User')
 
+
 passport.serializeUser((user, done) => {
 	console.log('=== serialize ... called ===')
 	console.log(user) // the whole raw user object!

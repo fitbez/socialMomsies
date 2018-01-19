@@ -7,23 +7,29 @@ import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Login from "./pages/Login/LoginForm";
-import Signup from "./pages/SignupForm";
+import Home from "./pages/Home";
 
-const App = () =>
-  <Router>
+import axios from 'axios';
+
+const App = () => {
+  axios.get('/home').then(user => {
+    console.log(user);
+  }).catch(err => {console.log(err);});
+
+  return <Router>
     <div>
       <Navbar />
       <Wrapper>
 
       <Route exact path="/" component={About} />
       <Route exact path="/about" component={Search} />
+      <Route exact path="/home" render={props => (<Home {...props} test-prop='adawdd' />)} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/playgroup" component={Playgroup} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
       </Wrapper>
 
     </div>
-  </Router>;
+  </Router>;}
 
 export default App;
