@@ -9,7 +9,7 @@ class Message extends Component {
 	
 	render() {
 		return (
-			<div className='panel panel-primary' ref={element => {this.messageElement = element}}>
+			<div className='panel panel-default' ref={element => {this.messageElement = element}}>
 				<Panel.Body>{this.props.messageBody}</Panel.Body>
 			</div>
 		);
