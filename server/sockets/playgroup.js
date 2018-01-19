@@ -1,3 +1,5 @@
+const db = require('../db/models/');
+
 module.exports = function(io) {
 	const playgroups = io.of('/playgroups');
 	playgroups.on('connection', client => {
