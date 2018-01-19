@@ -16,7 +16,7 @@ class App extends Component {
 			<Router>
 				<div>
 					<Navbar />
-					<Wrapper>
+					<Wrapper className='.wrapper'>
 						<Route exact path="/" component={About} />
 						<Route exact path="/about" component={Search} />
 						<Route exact path="/search" component={Search} />
