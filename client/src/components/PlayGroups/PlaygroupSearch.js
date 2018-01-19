@@ -62,16 +62,16 @@ const Result = props => (
 		<Panel.Body>
 			<Row bsClass='row-fluid'>
 				<Col sm={12} md={4} lg={4}>
-					<h3 style={{margin: '5px'}}>{props.name}</h3>
+					<h3 style={{margin: '5px 0px',}}>{props.name}</h3>
 				</Col>
 				<Col sm={6} md={2} lg={3}>
-					<h4 style={{margin: '5px'}}>{props.memberCount} Member{props.memberCount !== 1 && 's'}</h4>
+					<h4 style={{margin: '5px 0px',}}>{props.memberCount} Member{props.memberCount !== 1 && 's'}</h4>
 				</Col>
 				<Col sm={6} md={3} lg={3}>
-					<h4 style={{margin: '5px'}}>{props.city}</h4>
+					<h4 style={{margin: '5px 0px',}}>{props.city}</h4>
 				</Col>
 				<Col sm={6} smOffset={3} md={3} mdOffset={0} lg={2} lgOffset={0}>
-					<Button bsStyle='primary' style={{width: '100%'}}>Request to Join</Button>
+					<Button bsStyle='primary' style={{width: '100%',}}>Request to Join</Button>
 				</Col>
 			</Row>
 		</Panel.Body>

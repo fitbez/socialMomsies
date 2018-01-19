@@ -25,7 +25,7 @@ class Login extends Component {
 
     console.log('handleSubmit')
 
-    this.props._login(username, password)
+    this.props._login()
     this.setState({
       redirectTo: '/'
     })

@@ -11,26 +11,13 @@ const Navbar = props =>
 					SocialMomsies
         </Link>
       </div>
-      <ul className="nav navbar-nav ">
-				<li className={(window.location.pathname === "/" || window.location.pathname === "/about") ? "active" : "" }>
-					<Link to="/">About</Link>
-				</li>
-      </ul>
 			
       <ul className="nav navbar-nav navbar-right">
-
         <li className={window.location.pathname === "/search" ? "active" : ""}>
           <Link to="/search">Explore</Link>
         </li>
         <li className={window.location.pathname === "/playgroup" ? "active" : ""}>
           <Link to="/playgroup">Playgroups</Link>
-        </li>
-
-        <li className={window.location.pathname === "/login" ? "active" : ""}>
-          <Link to="/login">Login</Link>
-        </li>
-        <li className={window.location.pathname === "/signup" ? "active" : ""}>
-          <Link to="/signup">SignUp</Link>
         </li>
       </ul>
 		</div>

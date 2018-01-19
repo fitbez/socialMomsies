@@ -1,5 +1,6 @@
 #main-panel {
 	margin-top: 30px;
+	min-width: 521px;
 }
 
 .panel-default > .panel-heading {

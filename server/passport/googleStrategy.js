@@ -11,8 +11,8 @@ const strategy = new GoogleStrategy(
 		process.nextTick(function(){
 		// testing
 		console.log('===== GOOGLE PROFILE =======');
-		console.log(profile);
-		console.log(profile.emails, 'herhehrehrehreeererere');
+		console.log(profile.id);
+		//console.log(profile.emails);
 		console.log('======== END ===========');
 		// code
 		const { id, name, emails, photos } = profile;
