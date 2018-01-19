@@ -13,10 +13,10 @@ router.get(
 );
 
 // this route is just used to get the user basic info
-router.get('/home', (req, res) => {
-	console.log('adwdawdwdawd');
-	console.log('===== user!!======');
-	console.log(req.user);
+
+router.get('/user', (req, res) => {
+	// console.log(req.user);
+
 	if (req.user) {
 		return res.json({ user: req.user });
 	} else {
