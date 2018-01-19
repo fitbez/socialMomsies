@@ -45,6 +45,8 @@ class PlaygroupChat extends Component {
 	render() {
 		return (
 			<div>
+				<h3>{this.state.group}</h3><hr />
+				
 				{ this.state.messages.map( (message, i) => (<Message key={i} messageBody={message} /> )) }
 				
 				<FormGroup>

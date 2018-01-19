@@ -18,6 +18,7 @@ const passport = require('./server/passport');
 const app = express();
 const server = http.createServer(app); // http server object wrapper for use with socket.io
 const io = socketIO(server); // instantiate socket io for the app using http server wrapper
+require('./server/sockets/playgroup.js')(io);
 const PORT = process.env.PORT || 3001;
 
 // ===== Middleware ====
@@ -87,29 +88,4 @@ app.use(function(err, req, res, next) {
 // ==== Starting Server =====
 server.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`);
-});
-
-const playgroups = io.of('/playgroups');
-playgroups.on('connection', client => {
-	
-	client.on('join group', group => {
-		let rooms = Object.keys(client.rooms);
-		rooms.forEach(room => {
-			if (room !== client.id) client.leave(room);
-		});
-		
-		client.join(group);
-	});
-	
-	client.on('new message', (group, msg) => {
-		var messageData = {
-			id: client.id,
-			group: group,
-			message: msg,
-		};
-
-		// Relay the message to all clients
-		playgroups.in(group).emit('chat message', messageData);
-	});
-		
 });
