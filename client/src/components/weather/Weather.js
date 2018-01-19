@@ -78,18 +78,18 @@ class Weather extends Component {
       weatherInfo.name
     ) {
       partialTemplate = (
-        <div>
-          <p> Hello! The temperature in{" "}
-             {weatherInfo.name}{" "}is{" "} 
+        <div className="weather">
+          <h1> Hello! The temperature in{" "}
+             {weatherInfo.name}{" "}is{" "}
 
             <span>{(weatherInfo.main.temp)} &deg;F</span>
-          </p> and
-          {weatherInfo.weather.map(weatherData => (
-            <p>
-              {weatherData.main}
-
-              <span> : {weatherData.description}</span>
-            </p>
+          </h1> 
+            {/* {weatherInfo.weather.map(weatherData => (
+         // <p>
+            //   {weatherData.main}
+            //
+            //   <span> : {weatherData.description}</span>
+            // </p>*/}
           ))}
         </div>
       );
