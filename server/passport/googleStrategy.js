@@ -26,6 +26,8 @@ const strategy = new GoogleStrategy(
 			}
 			// if there is already someone with that email
 			if (userMatch) {
+				console.log('userMatch:');
+				console.log(userMatch);
 				return done(null, userMatch);
 			} else {
 				// if no user in our db, create a new user with that email

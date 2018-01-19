@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import axios from 'axios';
 
 const App = () => {
-  axios.get('/home').then(user => {
+  axios.get('/auth/user').then(user => {
     console.log(user);
   }).catch(err => {console.log(err);});
 

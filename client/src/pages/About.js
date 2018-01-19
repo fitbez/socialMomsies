@@ -1,7 +1,7 @@
 import React from "react";
 import googleButton from './Login/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
 import './about.css';
-const About = () =>
+const About = (props) =>
   <div>
 		<h1>SocialMomsies</h1>
 		<h2>Where all MOMs are Welcome!</h2>

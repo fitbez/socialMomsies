@@ -5,28 +5,27 @@ const User = require('../db/models/User')
 
 
 passport.serializeUser((user, done) => {
-	console.log('=== serialize ... called ===')
-	console.log(user) // the whole raw user object!
-	console.log('---------')
-	done(null, { _id: user._id })
-})
+	console.log('=== serialize ... called ===');
+	//console.log(user); // the whole raw user object!
+	//console.log('---------');
+	done(null, /*{ _id: user._id }*/ user);
+});
 
 passport.deserializeUser((id, done) => {
-	console.log('DEserialize ... called')
+	console.log('deserialize ... called');
 	User.findOne(
 		{ _id: id },
-		'firstName lastName photos local.username',
+		'email name image playgroups invites',
 		(err, user) => {
-			console.log('======= DESERILAIZE USER CALLED ======')
-			console.log(user)
-			console.log('--------------')
+			//console.log(user)
+			//console.log('--------------')
 			done(null, user)
 		}
-	)
-})
+	);
+});
 
 // ==== Register Strategies ====
-passport.use(LocalStrategy)
-passport.use(GoogleStrategy)
+passport.use(LocalStrategy);
+passport.use(GoogleStrategy);
 
-module.exports = passport
+module.exports = passport;
