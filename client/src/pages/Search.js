@@ -3,8 +3,6 @@ import Yelp from '../util/Yelp.js';
 import BusinessList from '../components/BusinessList/BusinessList.js';
 import SearchBar from '../components/SearchBar/SearchBar.js';
 
-import Weather from '../components/weather/Weather.js';
-// import Clock from '../Timer/Clock.js';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +26,7 @@ class Search extends Component {
       <div className="App">
 
         <SearchBar search={this.searchYelp}/>
-        <div>
-        <Weather/>
-        </div>
+
         <BusinessList businesses={this.state.businesses} />
 
 

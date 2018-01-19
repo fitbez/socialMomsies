@@ -7,8 +7,8 @@ import Map from '../map/Map.js';
 class Business extends React.Component {
 
   render() {
-<<<<<<< HEAD
-    console.log(this.props.business);
+
+  {/*  console.log(this.props.business);
     return (
       <div className="container">
         <div className="container-fluid"></div>
@@ -36,8 +36,8 @@ class Business extends React.Component {
                       {this.props.business.state}
                       {this.props.business.zipCode}</p>
                   </div>
-                </div>
-=======
+                </div>*/}
+
     return(
 
   <div className="container">
@@ -46,6 +46,7 @@ class Business extends React.Component {
     <div className="panel panel-danger">
       <div className="panel-heading">
         <div className="panel-body">google map?
+          <Map businesses={this.props.business}/>
           <div className="responsive">
             <div className="gallery">
                 <a target="_blank" href={this.props.business.url}>
@@ -62,7 +63,7 @@ class Business extends React.Component {
                       <p> {this.props.business.state} {this.props.business.zipCode}</p>
                     </div>
             </div>
->>>>>>> d62fd0750862eb92c55442e2a8aa49c8858c0f3b
+
 
               </div>
 
