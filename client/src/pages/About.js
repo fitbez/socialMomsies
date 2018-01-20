@@ -2,7 +2,7 @@ import React from "react";
 import googleButton from './Login/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
 import './about.css';
 const About = (props) =>
-  <div className="margin">
+  <div className="About">
 
 		<h1>Social Momsies</h1>
 		<h2>Where all Moms are Welcome!</h2>
