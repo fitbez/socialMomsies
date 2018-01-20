@@ -64,9 +64,7 @@ class SearchBar extends React.Component {
 
     render() {
       return(
-
       <div className="SearchBar">
-
         <div className="SearchBar-fields">
           <label>
          <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
@@ -80,29 +78,24 @@ class SearchBar extends React.Component {
            <option value="Hospitals">Hospitals</option>
          </select>
        </label>
-
-
-          <label>
-         <select  className="Search-fields " term={this.state.location} onChange={this.handleLocationChange}>
-          <option value="">Select city</option>
-           <option value="Arlington">Arlington, Va</option>
-           <option value="Washington">Washington, DC</option>
-           <option value="New York">New York</option>
-           <option value="Los Angeles">Los Angeles, Ca</option>
-
-         </select>
-        </label>
+        <label>
+       <select  className="Search-fields " term={this.state.location} onChange={this.handleLocationChange}>
+        <option value="">Select city</option>
+         <option value="Arlington">Arlington, Va</option>
+         <option value="Washington">Washington, DC</option>
+         <option value="New York">New York</option>
+         <option value="Los Angeles">Los Angeles, Ca</option>
+       </select>
+      </label>
         </div>
         <div className="SearchBar-sort-options">
           <ul>
             {this.renderSortByOptions()}
           </ul>
         </div>
-
         <div className="SearchBar-submit">
-          <a onClick={this.handleSearch}> Search powered by <img src="/../../images/yelp.png" style={{width:70,height:55}}/></a>
+          <a onClick={this.handleSearch}> Search powered by <img src="/../../images/yelp.png" style={{width:70,height:55}} alt="Yelp" /></a>
         </div>
-
       </div>
       );
     }

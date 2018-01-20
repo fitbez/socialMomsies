@@ -13,14 +13,14 @@ import axios from 'axios';
 //import './App.css';
 
 class App extends Component {
-	
+
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			user: null,
 		};
-		
+
 		axios.get('/auth/user').then(response => {
 			//console.log(response.data.user);
 			this.setState({user: response.data.user});
@@ -28,7 +28,7 @@ class App extends Component {
 			console.log(err);
 		});
 	}
-  
+
 	render() {
 		return (
 			<Router>
@@ -36,7 +36,7 @@ class App extends Component {
 					<Navbar />
 					<Wrapper>
 
-						<Route exact path="/" render={props => (<About user={this.state.user} />)} />
+						<Route exact path="/" render={props => (<About user={this.state.user} />)} hideNavigationBar={true} />
 						<Route exact path="/about" render={props => (<Search user={this.state.user} />)} />
 						<Route exact path="/home" render={props => (<Home user={this.state.user} />)} />
 						<Route exact path="/search" render={props => (<Search user={this.state.user} />)} />
@@ -48,7 +48,7 @@ class App extends Component {
 			</Router>
 		);
 	}
-  
+
 };
 
 export default App;

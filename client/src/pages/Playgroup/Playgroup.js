@@ -5,12 +5,12 @@ import { PlaygroupChat, PlaygroupSearch, PlaygroupCreate } from '../../component
 import './Playgroup.css';
 
 class Playgroup extends Component {
-	
+
 	state = {
 		display: 'search',
 		group: null,
 	}
-	
+
 	handleNavSelect = key => {
 		if (key === 'search' || key === 'new') {
 			this.setState({display: key, group: null});
@@ -18,14 +18,14 @@ class Playgroup extends Component {
 			this.setState({display: 'group', group: key});
 		}
 	};
-	
+
   render() {
     return (
       <Grid>
 				{JSON.stringify(this.props.user)}
 				<Row>
 					<Col md={12}>
-					
+
 						<Panel id='main-panel' bsStyle='default'>
 							<Panel.Heading style={{padding: '10px 0px 0px',}}>
 								<Nav bsStyle="tabs" activeKey={this.state.display} onSelect={this.handleNavSelect} style={{padding: '0px 15px'}}>
@@ -42,18 +42,18 @@ class Playgroup extends Component {
 									</NavItem>
 								</Nav>
 							</Panel.Heading>
-								
+
 							{this.state.display === 'group' && <PlaygroupChat user={this.props.user} group={this.state.group} />}
 							{this.state.display === 'search' && <PlaygroupSearch user={this.props.user} />}
 							{this.state.display === 'new' && <PlaygroupCreate user={this.props.user} />}
 						</Panel>
-						
+
 					</Col>
 				</Row>
       </Grid>
     );
   }
-	
+
 }
 
 export default Playgroup;
