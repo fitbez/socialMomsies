@@ -1,10 +1,6 @@
 .About img {
   align-content: center;
-<<<<<<< HEAD
-  position: absolute;
-=======
    position: absolute;
->>>>>>> bafc62aae07fe9f4782c3de87a9e1850f3b29ee0
    top: 30%;
    left: 50%;
    margin-left: -(X/2)px;
