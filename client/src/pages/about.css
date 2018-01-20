@@ -19,15 +19,14 @@
 	background-repeat: no-repeat;
 	height:100rem;
 }
-<<<<<<< HEAD
-h1, h2 {
 
-  color:white;
-=======
+
+
+
 
 .About h1, .About h2 {
   color:black;
->>>>>>> d5ab9048d41dfb5cfce83f96448126e741fe3f9c
+
   font-style:italic;
   font-family:fantasy;
   text-align: center;
