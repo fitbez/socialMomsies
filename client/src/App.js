@@ -28,7 +28,7 @@ class App extends Component {
 			console.log(err);
 		});
 	}
-
+//  we want it here, so it's only on the homepage you don't want it? yes sorry can we just keep the image as you did before change my mind
 	render() {
 		return (
 			<Router>

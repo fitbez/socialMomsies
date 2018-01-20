@@ -1,9 +1,9 @@
 import React from 'react';
 import './Business.css';
-// import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import Map from '../map/Map.js';
 
-// const AnyReactComponent = ({text}) => <div>{text}</div>;
+const AnyReactComponent = ({text}) => <div>{text}</div>;
 class Business extends React.Component {
 
   render() {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Yelp from '../util/Yelp.js';
 import BusinessList from '../components/BusinessList/BusinessList.js';
 import SearchBar from '../components/SearchBar/SearchBar.js';
-
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,6 @@ class Search extends Component {
       this.setState({
         businesses: businesses
       });
-
     });
   }
 
