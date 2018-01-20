@@ -7,6 +7,7 @@ var PlaygroupSchema = new Schema({
 		required: true,
 	},
 	city: String,
+	state: String,
 	messages: [{body: String, sender: {type: Schema.Types.ObjectId, ref: "Playgroup",}}],
 	owners: [{
 		type: Schema.Types.ObjectId,

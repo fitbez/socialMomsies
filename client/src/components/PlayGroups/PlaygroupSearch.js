@@ -10,7 +10,7 @@ class PlaygroupSearch extends Component {
 		this.state = {
 			nameInput: '',
 			cityInput: '',
-			results: [{name: 'Playgroup 1', city: 'Arlington, VA', memberCount: 6}, {name: 'Playgroup 2', city: 'Washington, DC', memberCount: 3},],
+			results: [{name: 'Playgroup 1', city: 'Arlington', state: 'VA', memberCount: 6}, {name: 'Playgroup 2', city: 'Washington', state: 'DC', memberCount: 3},],
 		};
 	}
 	
@@ -50,7 +50,7 @@ class PlaygroupSearch extends Component {
 			</ListGroup>,
 				
 			<Panel.Body className='panel-group' key='results' style={{margin: '0px', background: '#dcdcdc',}}>
-				{this.state.results.map((result, i) => <Result key={i} {...this.props} name={result.name} city={result.city} memberCount={result.memberCount || 0} />)}
+				{this.state.results.map((result, i) => <Result key={i} {...this.props} name={result.name} city={result.city} state={result.state} memberCount={result.memberCount || 0} />)}
 			</Panel.Body>,
 		];
 	}
@@ -68,7 +68,7 @@ const Result = props => (
 					<h4 style={{margin: '5px 0px',}}>{props.memberCount} Member{props.memberCount !== 1 && 's'}</h4>
 				</Col>
 				<Col sm={6} md={3} lg={3}>
-					<h4 style={{margin: '5px 0px',}}>{props.city}</h4>
+					<h4 style={{margin: '5px 0px',}}>{props.city}, {props.state}</h4>
 				</Col>
 				<Col sm={6} smOffset={3} md={3} mdOffset={0} lg={2} lgOffset={0}>
 					<Button bsStyle='primary' style={{width: '100%',}}>Request to Join</Button>

@@ -1,5 +1,5 @@
 #main-panel {
-	margin-top: 30px;
+	margin-top: 110px;
 	min-width: 521px;
 }
 
@@ -15,4 +15,8 @@
 }
 .panel-default > .panel-heading > .nav > .active > a {
 	color: #f6695e !important;
+}
+
+.wrapper {
+	padding-bottom: 0px !important;
 }

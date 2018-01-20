@@ -1,27 +1,44 @@
-img{
+.About img {
   align-content: center;
+<<<<<<< HEAD
   position: absolute;
+=======
+   position: absolute;
+>>>>>>> bafc62aae07fe9f4782c3de87a9e1850f3b29ee0
    top: 30%;
    left: 50%;
    margin-left: -(X/2)px;
    margin-top: -(Y/2)px;
 }
-  img:hover {
-    box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+.About img:hover {
+	box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
- body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-image: url('./mommy.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height:100rem;
 
+.About {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-image: url('./mommy.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:100rem;
 }
-h1, h2 {
-  color:black;
+
+
+
+
+
+ h1, h2 {
+  color:white;
   font-style:italic;
   font-family:fantasy;
   text-align: center;
+  font-size:50px;
+
 }
+
+/*.margin{
+
+  margin-top: 150px;
+
+}*/
