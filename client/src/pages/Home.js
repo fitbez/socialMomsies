@@ -7,7 +7,7 @@ const Home = props => {
 			<div className="Home">
 				<p>Current User:</p>
 				<code>
-					{JSON.stringify(props)}
+					{JSON.stringify(props.user, null, 2)}
 				</code>
 			</div>
 		)

@@ -8,31 +8,47 @@ import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Login from "./pages/Login/LoginForm";
 import Home from "./pages/Home";
-
 import axios from 'axios';
 
-const App = () => {
-  axios.get('/auth/user').then(user => {
-    console.log(user);
-  }).catch(err => {console.log(err);});
+//import './App.css';
 
-  return (
-		<Router>
-			<div>
-				<Navbar />
-				<Wrapper>
+class App extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			user: null,
+		};
+		
+		axios.get('/auth/user').then(response => {
+			//console.log(response.data.user);
+			this.setState({user: response.data.user});
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+  
+	render() {
+		return (
+			<Router>
+				<div className='routing-div'>
+					<Navbar />
+					<Wrapper>
 
-				<Route exact path="/" component={About} />
-				<Route exact path="/about" component={Search} />
-				<Route exact path="/home" render={props => (<Home {...props} test-prop='adawdd' />)} />
-				<Route exact path="/search" component={Search} />
-				<Route exact path="/playgroup" component={Playgroup} />
-				<Route exact path="/login" component={Login} />
-				</Wrapper>
+						<Route exact path="/" render={props => (<About user={this.state.user} />)} />
+						<Route exact path="/about" render={props => (<Search user={this.state.user} />)} />
+						<Route exact path="/home" render={props => (<Home user={this.state.user} />)} />
+						<Route exact path="/search" render={props => (<Search user={this.state.user} />)} />
+						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} />)} />
+						<Route exact path="/login" component={Login} />
+					</Wrapper>
 
-			</div>
-		</Router>
-	);
+				</div>
+			</Router>
+		);
+	}
+  
 };
 
 export default App;
