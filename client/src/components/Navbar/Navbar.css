@@ -22,8 +22,10 @@
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:focus,
 .navbar .navbar-nav > .active > a:hover {
-	color: #f6695e;
+	color: #130101;
 	font-size: 20px;
+		background-color: white;
+
 }
 
 .container-fluid {
