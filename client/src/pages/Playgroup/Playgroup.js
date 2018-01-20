@@ -22,7 +22,7 @@ class Playgroup extends Component {
   render() {
     return (
       <Grid>
-				{this.props['test-prop']}
+				{JSON.stringify(this.props.user)}
 				<Row>
 					<Col md={12}>
 					
