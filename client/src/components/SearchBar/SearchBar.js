@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -68,10 +69,11 @@ class SearchBar extends React.Component {
         <div className="SearchBar-fields">
           <label>
          <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
-          <option value="">Select </option>
+          <option value="">Select Activity </option>
            <option value="Kid-Friendly Restaurants">Family-Friendly Restaurants</option>
            <option value="Playgrounds">Playgrounds</option>
            <option value="Splash Parks">Splash Parks</option>
+           <option value="Libraries">Libraries</option>
            <option value="Museums">Museums</option>
            <option value="Kid-Activities">Kid Events</option>
            <option value="Schools">Schools</option>
@@ -94,7 +96,12 @@ class SearchBar extends React.Component {
           </ul>
         </div>
         <div className="SearchBar-submit">
+
+
+
+
           <a onClick={this.handleSearch}> Search powered by <img src="/../../images/yelp.png" style={{width:70,height:55}}  /></a>
+
         </div>
       </div>
       );
