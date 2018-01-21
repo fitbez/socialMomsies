@@ -20,9 +20,8 @@ render() {
 
   (this.props.businesses) ?  (console.log('NO!!z')) : (console.log(this.props.businesses, '*&&&&***&&&***&&*##############'))
     return (
-  <div className="col-8">
+  <div>
       <div className='google-map'>
-        hello here
         <GoogleMapReact
           defaultCenter={this.props.center}
            defaultZoom={this.props.zoom}>

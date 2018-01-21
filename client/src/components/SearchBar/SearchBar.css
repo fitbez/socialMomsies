@@ -9,6 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   height:30rem;
+  z-index: 1;
 }
 
 .SearchBar-sort-options ul {
