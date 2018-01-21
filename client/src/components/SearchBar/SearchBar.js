@@ -1,4 +1,5 @@
 import React from 'react';
+import yelp from './yelp.png';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
@@ -94,7 +95,7 @@ class SearchBar extends React.Component {
           </ul>
         </div>
         <div className="SearchBar-submit">
-          <a onClick={this.handleSearch}> Search powered by <img src="/../../images/yelp.png" style={{width:70,height:55}}  /></a>
+          <a onClick={this.handleSearch}> Search powered by <img src={yelp} style={{width:70,height:55}}  /></a>
         </div>
       </div>
       );
