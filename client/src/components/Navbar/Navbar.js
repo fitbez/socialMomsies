@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import googleButton from '../../pages/Login/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png'
+import logo from './logo3.png';
 import "./Navbar.css";
 
 const Navbar = props =>
@@ -8,7 +9,7 @@ const Navbar = props =>
 		<div className='container-fluid'>
       <div className="navbar-header">
         <Link className="navbar-brand" to="/">
-        <img src={"/../../images/logo3.png"} style={{width:100, height:60,marginTop: -17}} />
+        <img src={logo} style={{width:100, height:60,marginTop: -17}} />
         </Link>
       </div>
       {
