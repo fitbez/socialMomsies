@@ -43,7 +43,7 @@ img {
 	line-height: 58px;
 }
 
-ul img:hover {
+img:hover {
 	box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
