@@ -3,12 +3,14 @@ const router = express.Router();
 const models = require('../db/models');
 const passport = require('../passport');
 
+const host = process.env.NODE_ENV === 'production' ? 'https://socialmomsies.herokuapp.com' : 'http://localhost:3000';
+
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'], }));
 router.get(
 	'/google/callback',
 	passport.authenticate('google', {
-		successRedirect: 'http://localhost:3000/search',
-		failureRedirect: 'http://localhost:3000/login'
+		successRedirect: `${host}/search`,
+		failureRedirect: `${host}/login`
 	})
 );
 

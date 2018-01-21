@@ -1,6 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from '../Marker/Marker.js'
+import "./map.css"
 const AnyReactComponent = ({ text }) => <div>{ text }</div>;
 // console.log(this.props)
 
@@ -19,9 +20,13 @@ render() {
 
   (this.props.businesses) ?  (console.log('NO!!z')) : (console.log(this.props.businesses, '*&&&&***&&&***&&*##############'))
     return (
-      <div className='google-map' style={{width: '100%', height: '400px'}}>
-        hello here
+  <div>
+      <div className='google-map'>
         <GoogleMapReact
+        bootstrapURLKeys={{
+              key: 'AIzaSyB-vMgJZYsKwFTWUFc6VeRMYnuzScV-m9U'
+          }}
+
           defaultCenter={this.props.center}
            defaultZoom={this.props.zoom}>
 
@@ -32,6 +37,7 @@ render() {
           />
         </GoogleMapReact>
       </div>
+  </div>
     )
   }
 }

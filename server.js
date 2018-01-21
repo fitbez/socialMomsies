@@ -64,19 +64,22 @@ app.use(passport.session()) // will call the deserializeUser
 // 		res.redirect('/')
 // 	}
 // )
-
+/* Express app ROUTING */
+app.use('/auth', require('./server/auth'));
 // ==== if its production environment!
-if (process.env.NODE_ENV === 'production') {
+console.log(process.env.NODE_ENV, 'here');
+// process.env.NODE_ENV === 'production'
+if (true) {
 	const path = require('path');
 	console.log('YOU ARE IN THE PRODUCTION ENV');
-	app.use('/static', express.static(path.join(__dirname, '../build/static')));
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'));
+	app.use('/static', express.static(path.join(__dirname, './client/build/static')));
+	app.get('*', (req, res) => {
+		console.log(path.join(__dirname, './client/build/index.html'));
+		res.sendFile(path.join(__dirname, './client/build/index.html'));
 	});
 }
 
-/* Express app ROUTING */
-app.use('/auth', require('./server/auth'));
+
 
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
@@ -84,7 +87,6 @@ app.use(function(err, req, res, next) {
 	console.error(err.stack);
 	res.status(500);
 })
-
 // ==== Starting Server =====
 server.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`);

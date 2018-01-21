@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import { Grid, Row, Col, MenuItem, Panel, Nav, NavItem, NavDropdown, } from 'react-bootstrap';
 import { PlaygroupChat, PlaygroupSearch, PlaygroupCreate } from '../../components/PlayGroups';
 
@@ -20,6 +21,9 @@ class Playgroup extends Component {
 	};
 
   render() {
+		if(!this.props.user) {
+      return (<Redirect to="/" />)
+    }
     return (
       <Grid style={{paddingTop: this.props.navbarHeight + 'px',}}>
 				<Row>

@@ -1,11 +1,15 @@
 .SearchBar {
+  position: fixed;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:center;
   background-image: url('./kids.jpeg');
+  background-color: #57c4c8;
   background-size: cover;
   background-repeat: no-repeat;
-  height:100rem;
+  height:30rem;
+  z-index: 1;
 }
 
 .SearchBar-sort-options ul {
@@ -39,6 +43,7 @@
 }
 
 .SearchBar-fields {
+  /* position: fixed; */
   display: flex;
   justify-content: center;
   margin-bottom: 2.88rem;

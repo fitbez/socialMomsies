@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom';
 // TODO - add proptypes
 
 const Home = props => {
@@ -12,6 +13,9 @@ const Home = props => {
 			</div>
 		)
 	} else {
+		if(props.user) {
+      return (<Redirect to="/" />)
+    }
 		return (
 			<div className="Home">
 				<p>Current User:</p>
