@@ -29,7 +29,7 @@
 }
 
 .SearchBar-sort-options li:hover {
-  color: #f44336cc;
+  color: white;
 }
 
 .SearchBar-sort-options li.active,
@@ -46,7 +46,7 @@
 }
 .Search-term{
   width: 400px;
-  height:40px;
+  height:45px;
   padding: .66rem 1rem;
   margin-right: 2.22rem;
   border: 1px solid white;
@@ -58,7 +58,7 @@
 }
 .Search-fields{
   width: 400px;
-  height:40px;
+  height:45px;
   padding: .66rem 1rem;
   margin-right: 2.22rem;
   border: 1px solid white;
