@@ -21,11 +21,10 @@ class Playgroup extends Component {
 
   render() {
     return (
-      <Grid>
-				{JSON.stringify(this.props.user)}
+      <Grid style={{paddingTop: this.props.navbarHeight + 'px',}}>
 				<Row>
 					<Col md={12}>
-
+						
 						<Panel id='main-panel' bsStyle='default'>
 							<Panel.Heading style={{padding: '10px 0px 0px',}}>
 								<Nav bsStyle="tabs" activeKey={this.state.display} onSelect={this.handleNavSelect} style={{padding: '0px 15px'}}>
@@ -47,7 +46,7 @@ class Playgroup extends Component {
 							{this.state.display === 'search' && <PlaygroupSearch user={this.props.user} />}
 							{this.state.display === 'new' && <PlaygroupCreate user={this.props.user} />}
 						</Panel>
-
+						{JSON.stringify(this.props.user)}
 					</Col>
 				</Row>
       </Grid>
