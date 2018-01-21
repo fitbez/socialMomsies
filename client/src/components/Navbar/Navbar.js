@@ -35,7 +35,7 @@ class Navbar extends Component {
 						</Link>
 					</div>
 					{
-						(this.props.user && this.props.user._id) && &&
+						(this.props.user && this.props.user._id) &&
 						<ul className="nav navbar-nav navbar-right">
 							<li className={window.location.pathname === "/search" ? "active" : ""}>
 								<Link to="/search">Explore</Link>
@@ -49,9 +49,9 @@ class Navbar extends Component {
 						</ul>
 					}
 					{
-						(!props.user) &&
+						(!this.props.user) &&
 						<ul className="nav navbar-nav navbar-right">
-							<a href={window.location.host === 'localhost' ? "http://localhost:3001/auth/google/" :  "https://socialmomsies.herokuapp.com/auth/google/"}>
+							<a href={window.location.hostname === 'localhost' ? "http://localhost:3001/auth/google/" :  "https://socialmomsies.herokuapp.com/auth/google/"}>
 								{/*<GoogleButton /> */}
 								<img src={googleButton} alt="sign into Google Button" />
 							</a>

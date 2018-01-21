@@ -22,7 +22,6 @@ class App extends Component {
 		this.logout = this.logout.bind(this);
 
 			navbarHeight: 0, // keeps track of the height of the navbar, which can be passed to child components
-		};
 
 		// get the current user from the server
 		axios.get('/auth/user').then(response => {
