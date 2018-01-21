@@ -9,14 +9,22 @@
 	text-shadow: none !important;
 }
 
+img {
+	-moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .navbar .navbar-brand {
 	font-size: 24px;
+	min-height: 58px;
 }
 
 .navbar .navbar-nav > li > a,
 .navbar .navbar-nav > li > a:focus,
 .navbar .navbar-nav > li > a:hover {
 	color: #130101;
+	line-height: 28px;
 }
 
 .navbar .navbar-nav > .active > a,
@@ -24,7 +32,7 @@
 .navbar .navbar-nav > .active > a:hover {
 	color: #130101;
 	font-size: 20px;
-		background-color: white;
+	/*background-color: white;*/
 
 }
 
@@ -32,6 +40,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	background-color: #f6695e;
+	line-height: 58px;
 }
 
 ul img:hover {

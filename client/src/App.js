@@ -21,6 +21,10 @@ class App extends Component {
 		};
 		this.logout = this.logout.bind(this);
 
+			navbarHeight: 0, // keeps track of the height of the navbar, which can be passed to child components
+		};
+
+		// get the current user from the server
 		axios.get('/auth/user').then(response => {
 			//console.log(response.data.user);
 			this.setState({user: response.data.user, loading: false});
@@ -37,6 +41,15 @@ class App extends Component {
 		this.setState({ user: null});
 	}
 
+	// called by the navbar
+	handleNavbarResize = (navbarHeight) => {
+		//console.log(this.state.navbarHeight);
+		if (navbarHeight !== this.state.navbarHeight) {
+			this.setState({navbarHeight: navbarHeight});
+		}
+	};
+
+	// we want it here, so it's only on the homepage you don't want it? yes sorry can we just keep the image as you did before change my mind
 	render() {
 		if(this.state.loading) {
 			// fetching from the server to discover if the user is logged in or not
@@ -48,14 +61,14 @@ class App extends Component {
 					<Navbar
 						user={this.state.user}
 						logout={this.logout}
+						handleResize={this.handleNavbarResize}
 					/>
 					<Wrapper>
-
 						<Route exact path="/" render={props => (<About user={this.state.user} />)} hideNavigationBar={true} />
 						<Route exact path="/about" render={props => (<Search user={this.state.user} />)} />
 						<Route exact path="/home" render={props => (<Home user={this.state.user} />)} />
 						<Route exact path="/search" render={props => (<Search user={this.state.user} />)} />
-						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} />)} />
+						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
 						<Route exact path="/login" component={Login} />
 					</Wrapper>
 

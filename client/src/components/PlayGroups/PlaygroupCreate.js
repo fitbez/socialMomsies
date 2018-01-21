@@ -113,7 +113,7 @@ class PlaygroupCreate extends Component {
 						</Col>
 					</FormGroup>
 
-					<FormGroup>
+					<FormGroup style={{marginBottom: '0px',}}>
 						<Col smOffset={2} sm={10}>
 							<Button bsStyle='primary' type="submit">Create</Button>
 						</Col>
