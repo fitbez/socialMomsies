@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Playgroup from "./pages/Playgroup";
 import About from "./pages/About";
 import Search from "./pages/Search";
@@ -19,21 +19,38 @@ class App extends Component {
 
 		this.state = {
 			user: null,
+			loading: true
 		};
+		this.logout = this.logout.bind(this);
 
 		axios.get('/auth/user').then(response => {
 			//console.log(response.data.user);
-			this.setState({user: response.data.user});
+			this.setState({user: response.data.user, loading: false});
 		}).catch(err => {
+			this.setState({loading: false});
 			console.log(err);
 		});
 	}
-//  we want it here, so it's only on the homepage you don't want it? yes sorry can we just keep the image as you did before change my mind
+
+	logout() {
+		axios.post('/auth/logout').then(response => {
+			console.log('logout successful');
+		});
+		this.setState({ user: null});
+	}
+
 	render() {
+		if(this.state.loading) {
+			// fetching from the server to discover if the user is logged in or not
+			return(<h2>Please wait</h2>)
+		}
 		return (
 			<Router>
 				<div className='routing-div'>
-					<Navbar />
+					<Navbar
+						user={this.state.user}
+						logout={this.logout}
+					/>
 					<Wrapper>
 
 						<Route exact path="/" render={props => (<About user={this.state.user} />)} hideNavigationBar={true} />

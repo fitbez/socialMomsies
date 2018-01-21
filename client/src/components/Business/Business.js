@@ -16,7 +16,7 @@ class Business extends React.Component {
       <div className="panel-heading">
         <div className="panel-body">google map?
           <Map businesses={this.props.business}/>
-          <div className="responsive">
+          <div className="responsive col-4">
             <div className="gallery">
                 <a target="_blank" href={this.props.business.url}>
                   <img src={this.props.business.imageSrc} alt={this.props.business.name}/>

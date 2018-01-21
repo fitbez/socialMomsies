@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import Yelp from '../util/Yelp.js';
 import BusinessList from '../components/BusinessList/BusinessList.js';
 import SearchBar from '../components/SearchBar/SearchBar.js';
@@ -20,6 +21,9 @@ class Search extends Component {
 
 
   render() {
+    if(!this.props.user) {
+      return (<Redirect to="/" />)
+    }
     return (
       <div className="App">
 
