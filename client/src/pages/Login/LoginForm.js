@@ -61,7 +61,7 @@ class Login extends Component {
             />
             <button onClick={this.handleSubmit}>Login</button>
           </form>
-          <a href="http://localhost:3001/auth/google/">
+          <a href={window.location.host === 'localhost' ? "http://localhost:3001/auth/google/" :  "https://socialmomsies.herokuapp.com/auth/google/"}>
 							{/*<GoogleButton /> */}
 							<img src={googleButton} alt="sign into Google Button" />
 						</a>
