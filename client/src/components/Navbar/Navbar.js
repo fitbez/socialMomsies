@@ -44,7 +44,7 @@ class Navbar extends Component {
 								<Link to="/playgroup">Playgroups</Link>
 							</li>
 							<li>
-								<Link to="/">Logout</Link>
+								<span className="logout" onClick={this.props.logout}>Logout</span>
 							</li>
 						</ul>
 					}

@@ -48,7 +48,7 @@ class App extends Component {
 		}
 	};
 
-	// we want it here, so it's only on the homepage you don't want it? yes sorry can we just keep the image as you did before change my mind
+	
 	render() {
 		if(this.state.loading) {
 			// fetching from the server to discover if the user is logged in or not
