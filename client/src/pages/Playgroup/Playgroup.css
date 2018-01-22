@@ -24,3 +24,7 @@ body {
 .wrapper {
 	padding-bottom: 0px !important;
 }
+
+#requests-popover > .popover-content {
+	padding: 0px;
+}
