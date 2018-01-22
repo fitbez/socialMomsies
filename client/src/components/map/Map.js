@@ -22,6 +22,7 @@ const myStyle = {
  padding: 4
 }
 
+
 const AnyReactComponent = ({ text }) => <div style={myStyle}>{ text }</div>;
 // console.log(this.props)
 

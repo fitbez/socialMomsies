@@ -12,10 +12,14 @@
 
 .About {
 	display: flex;
+  /*position:fixed;*/
+  width:100%;
 	flex-direction: column;
 	justify-content: center;
+
 	background-image: url('./mommy.jpeg');
-	background-size: cover;
+	background-size:cover;
+
 	background-repeat: no-repeat;
 	height:100rem;
 }
@@ -29,12 +33,20 @@
 }
 
 
- h1, h2 {
+ h1{
   color:white;
   font-style:italic;
   font-family:fantasy;
+  font-size:100px;
   text-align: center;
-  font-size:50px;
+  margin-top:-350px;
+}
+p{
+color:white;
+font-style:Arial;
+font-family:fantasy;
+font-size:30px;
+
 
 }
 
