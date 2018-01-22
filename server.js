@@ -66,6 +66,7 @@ app.use(passport.session()) // will call the deserializeUser
 // )
 /* Express app ROUTING */
 app.use('/auth', require('./server/auth'));
+app.use('/playgroups', require('./server/routes/playgroups'));
 // ==== if its production environment!
 console.log(process.env.NODE_ENV, 'here');
 // process.env.NODE_ENV === 'production'

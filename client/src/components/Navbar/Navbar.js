@@ -7,10 +7,6 @@ import "./Navbar.css";
 
 class Navbar extends Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.handleResize(this.navbarElement.clientHeight);
 
@@ -31,7 +27,7 @@ class Navbar extends Component {
 				<div className='container-fluid'>
 					<div className="navbar-header">
 						<Link className="navbar-brand" to="/">
-						<img src={logo} style={{width:100, height: 60, marginTop: -17}} />
+							<img alt='Social Momsies' src={logo} style={{width:100, height: 60, marginTop: -17}} />
 						</Link>
 					</div>
 					{
@@ -44,7 +40,7 @@ class Navbar extends Component {
 								<Link to="/playgroup">Playgroups</Link>
 							</li>
 							<li>
-								<a href="#" className="logout" onClick={this.props.logout}>Logout</a>
+								<a href="/" className="logout" onClick={this.props.logout}>Logout</a>
 							</li>
 						</ul>
 					}
