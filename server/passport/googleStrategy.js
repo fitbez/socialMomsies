@@ -17,7 +17,7 @@ const strategy = new GoogleStrategy(
 			// code
 			const { id, displayName, emails, photos } = profile;
 
-			User.findOne({ email: emails[0].value }).populate('playgroups invites').then(userMatch => {
+			User.findOne({ email: emails[0].value }).populate('invites').then(userMatch => {
 				// if there is already someone with that email
 				if (userMatch) {
 					//console.log('userMatch:');
