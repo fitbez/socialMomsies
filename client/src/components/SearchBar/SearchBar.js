@@ -76,9 +76,9 @@ class SearchBar extends React.Component {
                 <label>
                <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
                 <option value="">Select Activity </option>
-                 <option value="Kid-Friendly Restaurants">Family-Friendly Restaurants</option>
                  <option value="Playgrounds">Playgrounds</option>
                  <option value="Splash Parks">Splash Parks</option>
+                 <option value="Kid-Friendly Restaurants">Restaurants</option>
                  <option value="Libraries">Libraries</option>
                  <option value="Museums">Museums</option>
                  <option value="Kid-Activities">Kid Events</option>
