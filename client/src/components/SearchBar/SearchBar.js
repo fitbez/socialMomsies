@@ -71,7 +71,7 @@ class SearchBar extends React.Component {
 
         <Row>
           <Col md={4}>
-      
+
               <div className="SearchBar-fields">
                 <label>
                <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
@@ -90,7 +90,7 @@ class SearchBar extends React.Component {
              <select  className="Search-fields" term={this.state.location} onChange={this.handleLocationChange}>
               <option value="">Select city</option>
                <option value="Arlington">Arlington, Va</option>
-               <option value="Washington">Washington, DC</option>
+               <option value="20011">Washington, DC</option>
                <option value="New York">New York</option>
                <option value="Los Angeles">Los Angeles, Ca</option>
              </select>
