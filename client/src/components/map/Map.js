@@ -30,7 +30,7 @@ class Map extends React.Component {
 
   static defaultProps = {
     center: {lat: 59.95, lng: 30.33 },
-    zoom: 9
+    zoom: 12
   }
 render() {
   console.log(this.props.businesses.latitude)
