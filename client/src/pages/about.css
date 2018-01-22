@@ -6,9 +6,9 @@
    margin-left: -(X/2)px;
    margin-top: -(Y/2)px;
 }
-.About img:hover {
+/* .About img:hover {
 	box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
+} */
 
 .About {
 	display: flex;
