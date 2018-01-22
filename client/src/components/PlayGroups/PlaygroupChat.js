@@ -21,17 +21,26 @@ class PlaygroupChat extends Component {
 	
 	componentWillReceiveProps(nextProps) {
 		if (this.state.group !== nextProps.group) {
-			this.socket.emit('join group', nextProps.group);
+			this.socket.emit('join group', nextProps.group._id);
 			this.setState({ group: nextProps.group, messages: [], });
 		}
 	}
 	
 	componentDidMount() {
-		this.socket.emit('join group', this.state.group);
+		this.socket.emit('join group', this.state.group._id);
 		
 		this.socket.on('chat message', (messageData) => {
 			try {
 				this.setState({ messages: this.state.messages.concat(messageData.message) });
+			} catch (err) {
+				
+			}
+		});
+		
+		this.socket.on('old messages', messages => {
+			//console.log(messages);
+			try {
+				this.setState({ messages: messages });
 			} catch (err) {
 				
 			}
@@ -47,12 +56,17 @@ class PlaygroupChat extends Component {
 	}
 	
 	componentWillUnmount() {
+		this.socket.close();
+		
 		window.removeEventListener('resize', this.handleResize);
 	}
 	
 	sendMessage = () => {
 		if (this.state.messageInput && this.state.messageInput.length && this.state.messageInput.trim().length > 0) {
-			this.socket.emit('new message', this.state.group, this.state.messageInput.trim());
+			this.socket.emit('new message', this.state.group._id, {
+				body: this.state.messageInput.trim(),
+				sender: this.props.user,
+			});
 			this.setState({ messageInput: '', });
 		}
 	};
@@ -77,7 +91,7 @@ class PlaygroupChat extends Component {
 		return [
 			<ListGroup key='main-body'>
 				<ListGroupItem>
-					<h4>{this.state.group}</h4>
+					<h4>{this.state.group.name}</h4>
 				</ListGroupItem>
 				
 				<div className='list-group-item panel-group'
@@ -89,7 +103,7 @@ class PlaygroupChat extends Component {
 					}}
 					ref={(element) => this.messagesElement = element}
 				>
-					{this.state.messages.map((message, i) => (<Message key={i} messageBody={message} />))}
+					{this.state.messages.map((message, i) => (<Message key={i} message={message} />))}
 				</div>
 			</ListGroup>,
 				

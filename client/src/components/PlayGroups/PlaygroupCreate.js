@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // eslint-disable-next-line
 import { Panel, Row, Col, Form, ListGroup, ListGroupItem, FormGroup, InputGroup, ControlLabel, DropdownButton, MenuItem, FormControl, Button, } from 'react-bootstrap';
+import API from '../../util/API.js';
 
 const states = [
 	{name: 'Alabama',									abbreviation: 'AL'},
@@ -64,6 +65,7 @@ class PlaygroupCreate extends Component {
 		this.state = {
 			nameInput: '',
 			cityInput: '',
+			stateInput: '',
 		};
 	}
 	
@@ -75,16 +77,33 @@ class PlaygroupCreate extends Component {
 		this.setState({ cityInput: event.target.value, });
 	};
 	
+	onStateInputChange = event => {
+		this.setState({ stateInput: event.target.value, });
+	};
+	
+	handleFormSubmit = event => {
+		event.preventDefault();
+		
+		const { nameInput, cityInput, stateInput } = this.state;
+		if (nameInput.trim().length > 1 && cityInput.trim().length > 1 && stateInput.trim().length > 0) {
+			API.createPlaygroup(nameInput, cityInput, stateInput).then(res => {
+				if (res.data) window.location.reload();
+			}).catch(err => {
+				
+			});
+		}
+	};
+	
 	render() {
 		return (
 			<Panel.Body style={{margin: '0px', padding: '15px 20px', /*background: '#dcdcdc',*/}}>
-				<Form horizontal>
+				<Form horizontal onSubmit={this.handleFormSubmit}>
 					<FormGroup controlId="playgroupName">
 						<Col componentClass={ControlLabel} sm={2}>
 							Playgroup Name
 						</Col>
 						<Col sm={10}>
-							<FormControl type="text" placeholder="" />
+							<FormControl type="text" value={this.state.nameInput} onChange={this.onNameInputChange} placeholder="" />
 						</Col>
 					</FormGroup>
 
@@ -93,7 +112,7 @@ class PlaygroupCreate extends Component {
 							City
 						</Col>
 						<Col sm={10}>
-							<FormControl type="text" placeholder="" />
+							<FormControl type="text" value={this.state.cityInput} onChange={this.onCityInputChange} placeholder="" />
 						</Col>
 					</FormGroup>
 					
@@ -103,11 +122,11 @@ class PlaygroupCreate extends Component {
 						</Col>
 						<Col sm={10}>
 							<FormControl
-								componentClass={props => <select className='form-control'>{props.children}</select>}
+								componentClass={props => <select  value={this.state.stateInput} onChange={this.onStateInputChange} className='form-control'>{props.children}</select>}
 								title="State"
 							>
-								<option value={null} key={0}>select</option>
-								<option disabled key={'break'}></option>
+								<option value={''} key={0}>select</option>
+								<option disabled key={'break'} value={null}></option>
 								{states.map(state => <option value={state.abbreviation} key={state.abbreviation}>{state.name}</option>)}
 							</FormControl>
 						</Col>

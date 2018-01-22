@@ -1,6 +1,61 @@
 import React, { Component } from "react";
 // eslint-disable-next-line
 import { Panel, Row, Col, Form, ListGroup, ListGroupItem, FormGroup, InputGroup, FormControl, Button, } from 'react-bootstrap';
+import API from '../../util/API.js';
+
+const states = [
+	{name: 'Alabama',									abbreviation: 'AL'},
+	{name: 'Alaska',									abbreviation: 'AK'},
+	{name: 'Arizona',									abbreviation: 'AZ'},
+	{name: 'Arkansas',								abbreviation: 'AR'},
+	{name: 'California',							abbreviation: 'CA'},
+	{name: 'Colorado',								abbreviation: 'CO'},
+	{name: 'Connecticut',							abbreviation: 'CT'},
+	{name: 'Delaware',								abbreviation: 'DE'},
+	{name: 'District of Columbia',		abbreviation: 'DC'},
+	{name: 'Florida',									abbreviation: 'FL'},
+	{name: 'Georgia',									abbreviation: 'GA'},
+	{name: 'Hawaii',									abbreviation: 'HI'},
+	{name: 'Idaho',										abbreviation: 'ID'},
+	{name: 'Illinois',								abbreviation: 'IL'},
+	{name: 'Indiana',									abbreviation: 'IN'},
+	{name: 'Iowa',										abbreviation: 'IA'},
+	{name: 'Kansas',									abbreviation: 'KS'},
+	{name: 'Kentucky',								abbreviation: 'KY'},
+	{name: 'Louisiana',								abbreviation: 'LA'},
+	{name: 'Maine',										abbreviation: 'ME'},
+	{name: 'Maryland',								abbreviation: 'MD'},
+	{name: 'Massachusetts',						abbreviation: 'MA'},
+	{name: 'Michigan',								abbreviation: 'MI'},
+	{name: 'Minnesota',								abbreviation: 'MN'},
+	{name: 'Mississippi',							abbreviation: 'MS'},
+	{name: 'Missouri',								abbreviation: 'MO'},
+	{name: 'Montana',									abbreviation: 'MT'},
+	{name: 'Nebraska',								abbreviation: 'NE'},
+	{name: 'Nevada',									abbreviation: 'NV'},
+	{name: 'New Hampshire',						abbreviation: 'NH'},
+	{name: 'New Jersey',							abbreviation: 'NJ'},
+	{name: 'New Mexico',							abbreviation: 'NM'},
+	{name: 'New York',								abbreviation: 'NY'},
+	{name: 'North Carolina',					abbreviation: 'NC'},
+	{name: 'North Dakota',						abbreviation: 'ND'},
+	{name: 'Ohio',										abbreviation: 'OH'},
+	{name: 'Oklahoma',								abbreviation: 'OK'},
+	{name: 'Oregon',									abbreviation: 'OR'},
+	{name: 'Pennsylvania',						abbreviation: 'PA'},
+	{name: 'Rhode Island',						abbreviation: 'RI'},
+	{name: 'South Carolina',					abbreviation: 'SC'},
+	{name: 'South Dakota',						abbreviation: 'SD'},
+	{name: 'Tennessee',								abbreviation: 'TN'},
+	{name: 'Texas',										abbreviation: 'TX'},
+	{name: 'Utah',										abbreviation: 'UT'},
+	{name: 'Vermont',									abbreviation: 'VT'},
+	{name: 'Virginia',								abbreviation: 'VA'},
+	{name: 'Washington',							abbreviation: 'WA'},
+	{name: 'West Virginia',						abbreviation: 'WV'},
+	{name: 'Wisconsin',								abbreviation: 'WI'},
+	{name: 'Wyoming',									abbreviation: 'WY'},
+];
 
 class PlaygroupSearch extends Component {
 	
@@ -10,8 +65,16 @@ class PlaygroupSearch extends Component {
 		this.state = {
 			nameInput: '',
 			cityInput: '',
-			results: [{name: 'Playgroup 1', city: 'Arlington', state: 'VA', memberCount: 6}, {name: 'Playgroup 2', city: 'Washington', state: 'DC', memberCount: 3},],
+			stateInput: '',
+			results: [],
 		};
+		
+		API.findPlaygroups().then(res => {
+			res.data.forEach(result => {result.memberCount = (result.owners.length + result.members.length)});
+			this.setState({results: res.data});
+		}).catch(err => {
+			this.setState({results: []});
+		});
 	}
 	
 	onNameInputChange = event => {
@@ -22,11 +85,30 @@ class PlaygroupSearch extends Component {
 		this.setState({ cityInput: event.target.value, });
 	};
 	
+	onStateInputChange = event => {
+		this.setState({ stateInput: event.target.value, });
+	};
+	
+	handleFormSubmit = event => {
+		event.preventDefault();
+		
+		const { nameInput, cityInput, stateInput } = this.state;
+		if (nameInput.trim().length > 1 || (cityInput.trim().length > 1 && stateInput.trim().length > 0)) {
+			API.findPlaygroups(nameInput, cityInput, stateInput).then(res => {
+				//console.log(res.data);
+				res.data.forEach(result => {result.memberCount = (result.owners.length + result.members.length)});
+				this.setState({results: res.data});
+			}).catch(err => {
+				this.setState({results: []});
+			});
+		}
+	};
+	
 	render() {
 		return [
 			<ListGroup key='input'>
 				<ListGroupItem style={{padding: '0px',}}>
-					<Form inline>
+					<Form inline onSubmit={this.handleFormSubmit}>
 						<FormGroup style={{margin: '15px'}}>
 							<InputGroup>
 								<InputGroup.Addon>
@@ -41,9 +123,22 @@ class PlaygroupSearch extends Component {
 								</InputGroup.Addon>
 								<FormControl type="text" value={this.state.cityInput} onChange={this.onCityInputChange} />
 							</InputGroup>
-							<FormControl.Feedback />
 							{' '}
-							<Button bsStyle='primary'>Search</Button>
+							<InputGroup>
+								<InputGroup.Addon>
+									State
+								</InputGroup.Addon>
+								<FormControl
+									componentClass={props => <select  value={this.state.stateInput} onChange={this.onStateInputChange} className='form-control'>{props.children}</select>}
+									title="State"
+								>
+									<option value={''} key={0}>select</option>
+									<option disabled key={'break'} value={null}></option>
+									{states.map(state => <option value={state.abbreviation} key={state.abbreviation}>{state.name}</option>)}
+								</FormControl>
+							</InputGroup>
+							{' '}
+							<Button bsStyle='primary' type="submit">Search</Button>
 						</FormGroup>
 					</Form>
 				</ListGroupItem>

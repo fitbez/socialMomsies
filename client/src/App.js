@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Playgroup from "./pages/Playgroup";
 import About from "./pages/About";
 import Search from "./pages/Search";
@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Login from "./pages/Login/LoginForm";
 import Home from "./pages/Home";
-import axios from 'axios';
+import API from './util/API.js';
 
 //import './App.css';
 class App extends Component {
@@ -17,14 +17,13 @@ class App extends Component {
 		super(props);
 		this.state = {
 			user: null,
-			loading: true
+			loading: true,
+			navbarHeight: 0, // keeps track of the height of the navbar, which can be passed to child components
 		};
 		this.logout = this.logout.bind(this);
 
-			navbarHeight: 0, // keeps track of the height of the navbar, which can be passed to child components
-
 		// get the current user from the server
-		axios.get('/auth/user').then(response => {
+		API.getUser().then(response => {
 			//console.log(response.data.user);
 			this.setState({user: response.data.user, loading: false});
 		}).catch(err => {
@@ -34,7 +33,7 @@ class App extends Component {
 	}
 
 	logout() {
-		axios.post('/auth/logout').then(response => {
+		API.logout().then(response => {
 			console.log('logout successful');
 		});
 		this.setState({ user: null});

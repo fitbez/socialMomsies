@@ -30,7 +30,7 @@ class Search extends Component {
     }
     return (
 
-      <div className="App" >
+      <div className="Search" >
 
                   <Row style={{paddingTop: this.props.navbarHeight + 'px',}}>
                     <Col sm={4} md={4}>
