@@ -97,7 +97,7 @@ class SearchBar extends React.Component {
             </label>
               </div>
               <div className="SearchBar-sort-options">
-                <ul>
+                <ul class>
                   {this.renderSortByOptions()}
                 </ul>
               </div>
@@ -108,8 +108,7 @@ class SearchBar extends React.Component {
         </Col>
         <Col md={8}>
                   <div>
-                  <h1> Hi Momsies! Select any activities here!</h1>
-                    <h1> Goodluck! </h1>
+              
                   </div>
         </Col>
   </Row>

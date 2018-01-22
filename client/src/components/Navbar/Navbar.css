@@ -4,16 +4,19 @@
 	border-radius: 0;
 	border: none;
 }
+ img:hover {
+	box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
 .navbar-brand, .navbar-nav > li > a {
 	text-shadow: none !important;
 }
 
-img {
+/* img {
 	-moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-}
+} */
 
 .navbar .navbar-brand {
 	font-size: 24px;
@@ -41,10 +44,6 @@ img {
 	margin-left: auto;
 	background-color: #f6695e;
 	line-height: 58px;
-}
-
-ul img:hover {
-	box-shadow: 0 16px 18px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .logout {
