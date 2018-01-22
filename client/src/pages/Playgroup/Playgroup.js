@@ -35,7 +35,7 @@ class Playgroup extends Component {
 			if (key === 'search' || key === 'new') {
 				this.setState({joinedGroups: results.data, display: key, group: null});
 			} else {
-				this.setState({joinedGroups: results.data, display: 'group', group: this.state.joinedGroups[key]});
+				this.setState({joinedGroups: results.data, display: 'group', group: results.data[key]});
 			}
 		});
 	};
