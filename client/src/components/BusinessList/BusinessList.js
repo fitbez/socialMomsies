@@ -15,11 +15,11 @@ class BusinessList extends React.Component {
     console.log(this.props.businesses);
 
     return (
-  <div className='outermap'>
+  // <div className=''>
 
-    {/* <div style={{width: '100%', height: '400px'}}> */}
-
-    {/* </div> */}
+    // {/* <div style={{width: '100%', height: '400px'}}> */}
+    //
+    // {/* </div> */}
     <div className="BusinessList">
       {/* <Map business={this.props.business}/> */}
       {
@@ -29,7 +29,7 @@ class BusinessList extends React.Component {
         })
       }
     </div>
-  </div>
+  // </div>
     );
   }
 };

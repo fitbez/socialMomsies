@@ -29,7 +29,7 @@ class Map extends React.Component {
 
   static defaultProps = {
     center: {lat: 59.95, lng: 30.33 },
-    zoom: 12
+    zoom: 9
   }
 render() {
   console.log(this.props.businesses.latitude)
@@ -41,13 +41,13 @@ render() {
   (this.props.businesses) ?  (console.log('NO!!z')) : (console.log(this.props.businesses, '*&&&&***&&&***&&*##############'))
     return (
   <div>
-      <div className='google-map'>
+      <div className='google-map' style={{width: '250px', height: '250px'}}>
         <GoogleMapReact
         bootstrapURLKeys={{
               key: 'AIzaSyB-vMgJZYsKwFTWUFc6VeRMYnuzScV-m9U'
           }}
 
-          defaultCenter={this.props.center}
+          defaultCenter={ {lat: this.props.businesses.latitude, lng: this.props.businesses.longitude }}
            defaultZoom={this.props.zoom}>
 
           <AnyReactComponent
