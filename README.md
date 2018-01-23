@@ -18,6 +18,9 @@ Screenshots
 
 ## Contributors
 
+- Omar Leiva
+- Esperanza Freeman
+- Stuart Lindstorm
 - Fitsum T Belayneh <https://github.com/fitbez>
 
 ---
