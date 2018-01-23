@@ -29,9 +29,9 @@ const strategy = new GoogleStrategy(
 					}
 				} else {
 					// if no user in our db, create a new user with that email
-					console.log('====== PRE SAVE =======');
-					console.log(profile);
-					console.log('====== post save ....');
+					//console.log('====== PRE SAVE =======');
+					//console.log(profile);
+					//console.log('====== post save ....');
 					const newGoogleUser = new User({
 						email: emails[0].value,
 						name: displayName,
@@ -40,8 +40,8 @@ const strategy = new GoogleStrategy(
 					// save this user
 					newGoogleUser.save((err, savedUser) => {
 						if (err) {
-							console.log('Error occurred while saving new google user');
-							console.log(err);
+							//console.log('Error occurred while saving new google user');
+							console.error(err);
 							return done(null, false);
 						} else {
 							return done(null, savedUser);
@@ -50,8 +50,8 @@ const strategy = new GoogleStrategy(
 				}
 			}).catch(err => {// handle errors here:
 				if (err) {
-					console.log('Error occurred while trying to find user by email');
-					console.log(err);
+					//console.log('Error occurred while trying to find user by email');
+					console.error(err);
 					return done(null, false);
 				}
 			}); // closes User Query

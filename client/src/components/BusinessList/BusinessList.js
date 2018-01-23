@@ -10,9 +10,9 @@ import Business from '../Business/Business.js';
 
 class BusinessList extends React.Component {
   render() {
-    console.log(this.props)
+    //console.log(this.props)
 
-    console.log(this.props.businesses);
+    //console.log(this.props.businesses);
 
     return (
   // <div className=''>
