@@ -33,8 +33,8 @@ Husbands, get ready to have some time off because we will make sure your other h
 
 ## Contributors
 
-- Omar Leiva
-- Esperanza Freeman
+- Omar Leiva  
+- Esperanza Freeman <https://github.com/espielabis>
 - Stuart Lindstorm
 - Fitsum T Belayneh <https://github.com/fitbez>
 
