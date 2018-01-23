@@ -184,13 +184,13 @@ const Result = props => (
 		<Panel.Body>
 			<Row bsClass='row-fluid'>
 				<Col sm={12} md={4} lg={4}>
-					<h3 style={{margin: '5px 0px',}}>{props.name}</h3>
+					<h3 style={{margin: '5px 0px',}}>{toTitleCase(props.name)}</h3>
 				</Col>
 				<Col sm={6} md={2} lg={3}>
 					<h4 style={{margin: '5px 0px',}}>{props.memberCount} Member{props.memberCount !== 1 && 's'}</h4>
 				</Col>
 				<Col sm={6} md={3} lg={3}>
-					<h4 style={{margin: '5px 0px',}}>{props.city}, {props.state}</h4>
+					<h4 style={{margin: '5px 0px',}}>{toTitleCase(props.city)}, {props.state}</h4>
 				</Col>
 				<Col sm={6} smOffset={3} md={3} mdOffset={0} lg={2} lgOffset={0}>
 					<Button
@@ -210,5 +210,9 @@ const Result = props => (
 		</Panel.Body>
 	</Panel>
 );
+
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, txt => (txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()));
+}
 
 export { PlaygroupSearch };
