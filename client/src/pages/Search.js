@@ -37,7 +37,6 @@ class Search extends Component {
                       <SearchBar search={this.searchYelp}/>
                     </Col>
                     <Col sm={8} md={8}>
-                    What do you want to do today
                       <BusinessList businesses={this.state.businesses} />
                     </Col>
                   </Row>
