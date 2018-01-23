@@ -1,7 +1,10 @@
 # SocialMomsies
 
+---
+
 **Version 1.0.0**
 https://socialmomsies.herokuapp.com/
+
 ---
 As a Mom myself, I wanted a resource that could make my life easier in finding places to go or activities to do with my son, and also an easy place to connect with parents in the area where I live.
 
@@ -12,7 +15,7 @@ Husbands, get ready to have some time off because we will make sure your other h
 
 ---
 
-Screenshots
+##Screenshots
 
 ---
 
