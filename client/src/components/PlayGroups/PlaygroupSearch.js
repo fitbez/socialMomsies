@@ -101,10 +101,20 @@ class PlaygroupSearch extends Component {
 		event.preventDefault();
 		
 		const { nameInput, cityInput, stateInput } = this.state;
-		if (nameInput.trim().length > 1 || (cityInput.trim().length > 1 && stateInput.trim().length > 0) || stateInput.trim().length > 0) {
+		if ((nameInput.trim().length > 0 || (cityInput.trim().length > 0 && stateInput.trim().length > 0) || stateInput.trim().length > 0) ||
+		(stateInput.trim().length === 0 && cityInput.trim().length === 0 && nameInput.trim().length === 0)) {
 			API.findPlaygroups(nameInput, cityInput, stateInput).then(res => {
 				//console.log(res.data);
-				res.data.forEach(result => {result.memberCount = (result.owners.length + result.members.length)});
+				res.data.forEach(result => {
+					result.memberCount = (result.owners.length + result.members.length);
+					result.hasJoined = (
+						result.owners.map(owner => owner._id).includes(this.props.user._id) ||
+						result.members.map(member => member._id).includes(this.props.user._id) ||
+						result.requests.map(requester => requester._id).includes(this.props.user._id) ||
+						this.props.user.invites.map(invite => invite._id).includes(result._id)
+					);
+				});
+				
 				this.setState({results: res.data});
 			}).catch(err => {
 				this.setState({results: []});
