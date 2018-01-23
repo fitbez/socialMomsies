@@ -4,7 +4,7 @@ import { Media } from 'react-bootstrap';
 class Message extends Component {
 	
 	componentDidMount() {
-		//this.messageElement.scrollIntoView({ behaviour: 'smooth' });
+		this.messageElement.scrollIntoView({ behaviour: 'smooth' });
 	}
 	
 	render() {
