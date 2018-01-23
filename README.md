@@ -11,3 +11,7 @@ This app would also allow moms to share ideas and experiences about their daily 
 Husbands, get ready to have some time off because we will make sure your other half and your kids has plenty of activities to keep them occupied. You can thank us later.
 
 ---
+
+## License & copyright
+
+© socialMomsies 
