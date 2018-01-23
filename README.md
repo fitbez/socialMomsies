@@ -17,7 +17,7 @@ Husbands, get ready to have some time off because we will make sure your other h
 
 ### Usage Instructions
 
-1. Clone the repository on github
+1. Clone the repository on GitHub 
 2. Make sure MondoDB, Node.js and NPM are installed
 3. Run `mongod` in the background
 4. install dependencies from the `socialMomsies` directory `npm install`
