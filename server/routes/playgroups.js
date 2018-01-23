@@ -36,12 +36,27 @@ router.get('/find', (req, res) => {
 	const queryData = url.parse(req.url, true).query;
 	if (!user || !queryData) return res.status(401).end();
 	
-	db.Playgroup.find(queryData).populate('owners members requests').then(results => {
-		//console.log(results);
+	const params = {};
+	if (queryData.state) params.state = queryData.state;
+	if (queryData.city) params.$where = "this.city.toLowerCase() === '" + queryData.city.toLowerCase() + "'";
+	if (queryData.name) {
+		if (params.$where) params.$where += " && ";
+		else params.$where = "";
+		params.$where += "this.name.toLowerCase().includes('" + queryData.name.toLowerCase() + "')";
+	}
+	
+	db.Playgroup.find(params).populate('owners members requests').then(results => {
 		res.status(200).json(results);
 	}).catch(err => {
 		res.status(400).end();
 	});
+	
+	/*db.Playgroup.find(queryData).populate('owners members requests').then(results => {
+		//console.log(results);
+		res.status(200).json(results);
+	}).catch(err => {
+		res.status(400).end();
+	});*/
 });
 
 router.get('/joined', (req, res) => {

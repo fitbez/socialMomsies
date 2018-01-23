@@ -2,9 +2,9 @@ import React from 'react';
 import './Business.css';
 // import GoogleMapReact from 'google-map-react';
 import Map from '../map/Map.js';
-import  Col from "../../components/Col";
-import Row  from "../../components/Row";
-import ScrollUpButton from "react-scroll-up-button";
+//import  Col from "../../components/Col";
+//import Row  from "../../components/Row";
+//import ScrollUpButton from "react-scroll-up-button";
 import { Media } from 'react-bootstrap';
 // const AnyReactComponent = ({text}) => <div>{text}</div>;
 class Business extends React.Component {

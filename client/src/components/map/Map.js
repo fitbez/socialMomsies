@@ -1,6 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
-import Marker from '../Marker/Marker.js'
+//import Marker from '../Marker/Marker.js'
 import "./map.css"
 
 const myStyle = {
