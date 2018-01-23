@@ -17,12 +17,16 @@ const strategy = new GoogleStrategy(
 			// code
 			const { id, displayName, emails, photos } = profile;
 
-			User.findOne({ email: emails[0].value }).populate('playgroups invites').then(userMatch => {
+			User.findOne({ email: emails[0].value }).populate('invites').then(userMatch => {
 				// if there is already someone with that email
 				if (userMatch) {
 					//console.log('userMatch:');
 					//console.log(userMatch);
-					return done(null, userMatch);
+					if (userMatch.image !== photos[0].value) {
+						User.findOneAndUpdate({_id: userMatch._id}, {'$set': {image: photos[0].value}}, {new: true}).then(result => {return done(null, result);});
+					} else {
+						return done(null, userMatch);
+					}
 				} else {
 					// if no user in our db, create a new user with that email
 					console.log('====== PRE SAVE =======');
@@ -31,7 +35,7 @@ const strategy = new GoogleStrategy(
 					const newGoogleUser = new User({
 						email: emails[0].value,
 						name: displayName,
-						image: ((photos && photos.length && photos.length > 0) ? photos[0].value : 'http://shashgrewal.com/wp-content/uploads/2015/05/default-placeholder-300x300.png'),
+						image: photos[0].value,
 					});
 					// save this user
 					newGoogleUser.save((err, savedUser) => {

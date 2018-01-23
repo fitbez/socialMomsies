@@ -70,7 +70,15 @@ class PlaygroupSearch extends Component {
 		};
 		
 		API.findPlaygroups().then(res => {
-			res.data.forEach(result => {result.memberCount = (result.owners.length + result.members.length)});
+			res.data.forEach(result => {
+				result.memberCount = (result.owners.length + result.members.length);
+				result.hasJoined = (
+					result.owners.map(owner => owner._id).includes(props.user._id) ||
+					result.members.map(member => member._id).includes(props.user._id) ||
+					result.requests.map(requester => requester._id).includes(props.user._id) ||
+					props.user.invites.map(invite => invite._id).includes(result._id)
+				);
+			});
 			this.setState({results: res.data});
 		}).catch(err => {
 			this.setState({results: []});
@@ -93,7 +101,7 @@ class PlaygroupSearch extends Component {
 		event.preventDefault();
 		
 		const { nameInput, cityInput, stateInput } = this.state;
-		if (nameInput.trim().length > 1 || (cityInput.trim().length > 1 && stateInput.trim().length > 0)) {
+		if (nameInput.trim().length > 1 || (cityInput.trim().length > 1 && stateInput.trim().length > 0) || stateInput.trim().length > 0) {
 			API.findPlaygroups(nameInput, cityInput, stateInput).then(res => {
 				//console.log(res.data);
 				res.data.forEach(result => {result.memberCount = (result.owners.length + result.members.length)});
@@ -102,6 +110,15 @@ class PlaygroupSearch extends Component {
 				this.setState({results: []});
 			});
 		}
+	};
+	
+	markJoined = groupId => {
+		const newResults = this.state.results.map(result => {
+			if (result._id === groupId) result.hasJoined = true;
+			return result;
+		});
+		
+		this.setState({results: newResults});
 	};
 	
 	render() {
@@ -145,7 +162,7 @@ class PlaygroupSearch extends Component {
 			</ListGroup>,
 				
 			<Panel.Body className='panel-group' key='results' style={{margin: '0px', background: '#dcdcdc',}}>
-				{this.state.results.map((result, i) => <Result key={i} {...this.props} name={result.name} city={result.city} state={result.state} memberCount={result.memberCount || 0} />)}
+				{this.state.results.map((result, i) => <Result key={i} index={i} {...this.props} groupId={result._id} name={result.name} city={result.city} state={result.state} memberCount={result.memberCount || 0} hasJoined={result.hasJoined} markJoined={this.markJoined} />)}
 			</Panel.Body>,
 		];
 	}
@@ -166,7 +183,18 @@ const Result = props => (
 					<h4 style={{margin: '5px 0px',}}>{props.city}, {props.state}</h4>
 				</Col>
 				<Col sm={6} smOffset={3} md={3} mdOffset={0} lg={2} lgOffset={0}>
-					<Button bsStyle='primary' style={{width: '100%',}}>Request to Join</Button>
+					<Button
+						disabled={props.hasJoined}
+						bsStyle='primary'
+						style={{width: '100%',}}
+						onClick={event => {
+							API.requestGroupJoin(props.groupId).then(response => {
+								props.markJoined(props.groupId);
+							}).catch(console.error);
+						}}
+					>
+						Request to Join
+					</Button>
 				</Col>
 			</Row>
 		</Panel.Body>

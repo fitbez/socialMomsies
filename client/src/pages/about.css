@@ -33,7 +33,7 @@
 }
 
 
- h1{
+.About h1{
   color:white;
   font-style:italic;
   font-family:fantasy;
@@ -41,7 +41,7 @@
   text-align: center;
   margin-top:-350px;
 }
-p{
+.About p{
 color:white;
 font-style:Arial;
 font-family:fantasy;

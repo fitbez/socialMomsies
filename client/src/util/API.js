@@ -23,6 +23,18 @@ export default {
 		return axios.get('/playgroups/joined');
 	},
 	
+	requestGroupJoin(groupId) {
+		return axios.put('/playgroups/request?groupId=' + groupId);
+	},
+	
+	confirmRequest(groupId, userId) {
+		return axios.post('/playgroups/confirm-request?groupId=' + groupId + '&userId=' + userId);
+	},
+	
+	denyRequest(groupId, userId) {
+		return axios.post('/playgroups/deny-request?groupId=' + groupId + '&userId=' + userId);
+	},
+	
 	getUser: function() {
     return axios.get('/auth/user');
   },

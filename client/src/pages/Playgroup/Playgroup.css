@@ -24,3 +24,12 @@ body {
 .wrapper {
 	padding-bottom: 0px !important;
 }
+
+#requests-popover > .popover-content {
+	padding: 0px;
+}
+
+.Playgroup .media > .media-left > img:hover,
+.Playgroup .media > .media-right > img:hover {
+	box-shadow: none;
+}
