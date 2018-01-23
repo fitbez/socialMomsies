@@ -1,5 +1,6 @@
 # SocialMomsies
 https://socialmomsies.herokuapp.com/
+
 As a Mom myself, I wanted a resource that could make my life easier in finding places to go or activities to do with my son, and also an easy place to connect with parents in the area where I live.
 
 So I thought an  app, where a mom can go  do those things. This app would help moms find the nearest kid friendly places, activities, restaurants, or different events that might be happening or offering near their city.
