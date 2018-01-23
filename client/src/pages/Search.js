@@ -49,7 +49,6 @@ class Search extends Component {
 					</Col>
 				</Row>
 			</div>
-
     );
   }
 }
