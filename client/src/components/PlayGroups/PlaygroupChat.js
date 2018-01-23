@@ -107,7 +107,7 @@ class PlaygroupChat extends Component {
 				<ListGroupItem>
 					<Row>
 						<Col xs={10} sm={10} md={11} lg={11}>
-							<h4>{this.state.group.name}</h4>
+							<h4>{toTitleCase(this.state.group.name)}</h4>
 						</Col>
 						<Col xs={2} sm={2} md={1} lg={1}>
 							{(this.isGroupOwner() && this.props.group.requests.length > 0) && <RequestsButton {...this.props} removeRequest={this.removeRequest} />}
@@ -205,5 +205,9 @@ const Request = props => (
 		</Row>
 	</ListGroupItem>
 );
+
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, txt => (txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()));
+}
 
 export { PlaygroupChat };
