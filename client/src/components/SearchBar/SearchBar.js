@@ -108,7 +108,7 @@ class SearchBar extends React.Component {
         </Col>
         <Col md={8}>
                   <div>
-              
+                
                   </div>
         </Col>
   </Row>
