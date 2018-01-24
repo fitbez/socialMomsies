@@ -31,10 +31,10 @@ This app would also allow moms to share ideas and experiences about their daily 
 
 ## Contributors
 
-- Omar Leiva  
-- Esperanza Freeman <https://github.com/espielabis>
-- Stuart Lindstorm  
-- Fitsum T Belayneh <https://github.com/fitbez>
+- [Omar Leiva - github.com/oleivahn](https://github.com/oleivahn)
+- [Esperanza Freeman - github.com/espielabis](https://github.com/espielabis)
+- [Stuart Lindstorm - github.com/the-realest-stu](https://github.com/the-realest-stu)
+- [Fitsum T Belayneh - github.com/fitbez](https://github.com/fitbez)
 
 ---
 
