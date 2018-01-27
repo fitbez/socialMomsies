@@ -7,29 +7,29 @@ import API from '../../util/API.js';
 import './Playgroup.css';
 
 class Playgroup extends Component {
-	
+
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			display: 'search',
 			group: null,
 			joinedGroups: [],
 		};
-		
+
 		API.getUserPlaygroups().then(results => {
 			//console.log(results.data);
 			this.setState({joinedGroups: results.data});
 		});
 	}
-	
+
 	updateGroupData = () => {
 		API.getUserPlaygroups().then(results => {
 			//console.log(results.data);
 			this.setState({joinedGroups: results.data});
 		});
 	};
-	
+
 	handleNavSelect = key => {
 		API.getUserPlaygroups().then(results => {
 			if (key === 'search' || key === 'new') {
@@ -48,7 +48,7 @@ class Playgroup extends Component {
       <Grid className='Playgroup' style={{paddingTop: this.props.navbarHeight + 'px',}}>
 				<Row>
 					<Col md={12}>
-						
+
 						<Panel id='main-panel' bsStyle='default'>
 							<Panel.Heading style={{padding: '10px 0px 0px',}}>
 								<Nav bsStyle="tabs" activeKey={this.state.display} onSelect={this.handleNavSelect} style={{padding: '0px 15px'}}>
@@ -59,11 +59,11 @@ class Playgroup extends Component {
 										Find Playgroups
 									</NavItem>
 									<NavItem eventKey="new">
-										New Playgroup
+										Create a Playgroup
 									</NavItem>
 								</Nav>
 							</Panel.Heading>
-							
+
 							{this.state.display === 'group' && <PlaygroupChat user={this.props.user} joinedGroups={this.state.joinedGroups} updateGroupData={this.updateGroupData} group={this.state.group} />}
 							{this.state.display === 'search' && <PlaygroupSearch user={this.props.user} joinedGroups={this.state.joinedGroups} updateGroupData={this.updateGroupData} />}
 							{this.state.display === 'new' && <PlaygroupCreate user={this.props.user} joinedGroups={this.state.joinedGroups} updateGroupData={this.updateGroupData} />}
