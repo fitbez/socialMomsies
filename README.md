@@ -13,6 +13,16 @@ This app would also allow moms to share ideas and experiences about their daily 
 
 ---
 
+### Technologies Used
+* Yelp API
+* Google map API
+* React
+* MongoDB
+* Express
+* Node
+* React Bootstrap
+* Socket.io
+
 ### Usage Instructions
 
 1. Clone the repository on GitHub
@@ -32,7 +42,7 @@ User can sign in using google.
 User can select activities and city that they would like to search for.
 ![Home](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/explore.png)
 
-To search activities  click the Amazon button to render the Amazon search bar. Search for a product and the associated product results will render.
+To search activities  click the search powered by Yelp button to render the search results.
 ![Explore](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/yelpapi.png)
 
 User can create playgroup, search for a play playgroup based on name and locations and chat.
