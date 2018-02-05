@@ -33,7 +33,7 @@ User can select activities and city that they would like to search for.
 ![Home](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/explore.png)
 
 To search activities  click the Amazon button to render the Amazon search bar. Search for a product and the associated product results will render.
-![Explore](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/yelp api.png)
+![Explore](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/yelpapi.png)
 
 User can create playgroup, search for a play playgroup based on name and locations and chat.
 ![Playgroup](https://github.com/espielabis/socialMomsies/blob/master/client/public/images/playgroup.png)
