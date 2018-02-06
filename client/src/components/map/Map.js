@@ -1,8 +1,10 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from '../Marker/Marker.js'
+
 const AnyReactComponent = ({ text }) => <div>{ text }</div>;
-// console.log(this.props)
+
+console.log(this.props)
 
 class Map extends React.Component {
 
@@ -17,7 +19,7 @@ render() {
   this.props.center.lat = this.props.businesses.latitude;
   this.props.center.lng = this.props.businesses.longitude;
 
-  (this.props.businesses) ?  (console.log('NO!!z')) : (console.log(this.props.businesses, '*&&&&***&&&***&&*##############'))
+  // (this.props.businesses) ?  (console.log('NO!!z')) : (console.log(this.props.businesses, '*&&&&***&&&***&&*##############'))
     return (
       <div className='google-map' style={{width: '100%', height: '400px'}}>
         hello here
