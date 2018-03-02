@@ -26,10 +26,10 @@
 
 
 .Search {
-  	background-image: url('./kids.jpeg');
+  	/*background-image: url('./kids.jpeg');*/
     background-size: cover;
     background-repeat: no-repeat;
-    height:100rem;
+    /*height:100rem;*/
 }
 
 

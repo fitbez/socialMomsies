@@ -86,9 +86,9 @@ class SearchBar extends React.Component {
                  <option value="Hospitals">Hospitals</option>
                </select>
              </label>
-             <input className="Search-term" placeholder="City or Zip Code"  term={this.state.value} onChange={this.handleLocationChange} />
+             {/*<input className="Search-term" placeholder="City or Zip Code"  term={this.state.value} onChange={this.handleLocationChange} />*/}
 
-            {/*  <label>
+            <label>
              <select  className="Search-fields" term={this.state.location} onChange={this.handleLocationChange}>
               <option value="">Select city</option>
                <option value="Arlington">Arlington, Va</option>
@@ -96,7 +96,7 @@ class SearchBar extends React.Component {
                <option value="New York">New York</option>
                <option value="Los Angeles">Los Angeles, Ca</option>
              </select>
-            </label>*/}
+            </label>
               </div>
               <div className="SearchBar-sort-options">
                 <ul>

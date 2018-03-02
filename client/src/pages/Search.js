@@ -19,7 +19,7 @@ class Search extends Component {
   searchYelp(term, location, sortBy) {
 		if (!term || term.trim().length < 1 || !location || location.trim().length < 1) {
 			this.setState({alert: 'Please select an activity and location!'});
-			
+
 			return;
 		}
     Yelp.search(term, location, sortBy).then(businesses => {
@@ -38,8 +38,8 @@ class Search extends Component {
     return (
       <div className="Search" >
 				{this.state.alert && <Alert style={{top: (this.props.navbarHeight + 10 + 'px')}} id='search-alert' bsStyle="danger">{this.state.alert}</Alert>}
-				
-				<Row style={{paddingTop: this.props.navbarHeight + 'px',}}>
+
+				<Row>
 					<Col sm={4} md={4}>
 						<SearchBar search={this.searchYelp}/>
 					</Col>
