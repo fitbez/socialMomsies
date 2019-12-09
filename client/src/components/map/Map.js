@@ -43,7 +43,7 @@ class Map extends React.Component {
         <div className="google-map" style={{ width: "250px", height: "250px" }}>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyB-vMgJZYsKwFTWUFc6VeRMYnuzScV-m9U"
+              key: "AIzaSyCN47xBr_CNXWg0x_8AYFBfIocWYtErHfA"
             }}
             defaultCenter={{
               lat: this.props.businesses.latitude,
