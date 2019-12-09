@@ -1,11 +1,11 @@
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GoogleStrategy = require("passport-google-oauth2").Strategy;
 const { User } = require("../db/models/");
 
 const strategy = new GoogleStrategy(
   {
     clientID:
       "961908331426-lvci427bk9qqdnk2qj93hhueta2b0pat.apps.googleusercontent.com",
-    clientSecret: "AXtMBz-R_v8-SPTuHMHdVF_o",
+    clientSecret: "_Y-0W0UpFrlRv1RTa_Fl51Ph",
     callbackURL: "/auth/google/callback"
   },
   function(token, tokenSecret, profile, done) {
