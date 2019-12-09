@@ -10,10 +10,6 @@ var UserSchema = new Schema({
 	},
 	name: String,
 	image: String,
-	playgroups: [{
-		type: Schema.Types.ObjectId,
-		ref: "Playgroup",
-	}],
 	invites: [{
 		type: Schema.Types.ObjectId,
 		ref: "Playgroup",

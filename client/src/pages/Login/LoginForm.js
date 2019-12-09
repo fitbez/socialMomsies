@@ -18,12 +18,12 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const {
+    /*const {
       username,
       password
-    } = this.state
+    } = this.state*/
 
-    console.log('handleSubmit')
+    //console.log('handleSubmit')
 
     this.props._login()
     this.setState({
@@ -61,7 +61,7 @@ class Login extends Component {
             />
             <button onClick={this.handleSubmit}>Login</button>
           </form>
-          <a href="http://localhost:3001/auth/google/">
+          <a href={window.location.hostname === 'localhost' ? "http://localhost:3001/auth/google/" :  "https://socialmomsies.herokuapp.com/auth/google/"}>
 							{/*<GoogleButton /> */}
 							<img src={googleButton} alt="sign into Google Button" />
 						</a>

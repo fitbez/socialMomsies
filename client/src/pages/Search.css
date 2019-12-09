@@ -1,0 +1,11 @@
+.Search {
+	position: relative;
+}
+
+#search-alert {
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 666;
+}

@@ -8,39 +8,65 @@ import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Login from "./pages/Login/LoginForm";
 import Home from "./pages/Home";
-import axios from 'axios';
+import API from './util/API.js';
 
 //import './App.css';
-
 class App extends Component {
 
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			user: null,
+			loading: true,
+			navbarHeight: 0, // keeps track of the height of the navbar, which can be passed to child components
 		};
+		this.logout = this.logout.bind(this);
 
-		axios.get('/auth/user').then(response => {
+		// get the current user from the server
+		API.getUser().then(response => {
 			//console.log(response.data.user);
-			this.setState({user: response.data.user});
+			this.setState({user: response.data.user, loading: false});
 		}).catch(err => {
+			this.setState({loading: false});
 			console.log(err);
 		});
 	}
-//  we want it here, so it's only on the homepage you don't want it? yes sorry can we just keep the image as you did before change my mind
+
+	logout() {
+		API.logout().then(response => {
+			console.log('logout successful');
+		});
+		this.setState({ user: null});
+	}
+
+	// called by the navbar
+	handleNavbarResize = (navbarHeight) => {
+		//console.log(this.state.navbarHeight);
+		if (navbarHeight !== this.state.navbarHeight) {
+			this.setState({navbarHeight: navbarHeight});
+		}
+	};
+
+
 	render() {
+		if(this.state.loading) {
+			// fetching from the server to discover if the user is logged in or not
+			return(<h2>Please wait</h2>)
+		}
 		return (
 			<Router>
 				<div className='routing-div'>
-					<Navbar />
+					<Navbar
+						user={this.state.user}
+						logout={this.logout}
+						handleResize={this.handleNavbarResize}
+					/>
 					<Wrapper>
-
-						<Route exact path="/" render={props => (<About user={this.state.user} />)} hideNavigationBar={true} />
-						<Route exact path="/about" render={props => (<Search user={this.state.user} />)} />
-						<Route exact path="/home" render={props => (<Home user={this.state.user} />)} />
-						<Route exact path="/search" render={props => (<Search user={this.state.user} />)} />
-						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} />)} />
+						<Route exact path="/" render={props => (<About user={this.state.user} navbarHeight={this.state.navbarHeight} />)} hideNavigationBar={true} />
+						<Route exact path="/about" render={props => (<Search user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
+						<Route exact path="/home" render={props => (<Home user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
+						<Route exact path="/search" render={props => (<Search user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
+						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
 						<Route exact path="/login" component={Login} />
 					</Wrapper>
 

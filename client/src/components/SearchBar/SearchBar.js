@@ -1,5 +1,7 @@
 import React from 'react';
+import yelp from './yelp.png';
 import './SearchBar.css';
+import { Row, Col} from 'react-bootstrap';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -64,39 +66,55 @@ class SearchBar extends React.Component {
 
     render() {
       return(
+
       <div className="SearchBar">
-        <div className="SearchBar-fields">
-          <label>
-         <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
-          <option value="">Select </option>
-           <option value="Kid-Friendly Restaurants">Family-Friendly Restaurants</option>
-           <option value="Playgrounds">Playgrounds</option>
-           <option value="Splash Parks">Splash Parks</option>
-           <option value="Museums">Museums</option>
-           <option value="Kid-Activities">Kid Events</option>
-           <option value="Schools">Schools</option>
-           <option value="Hospitals">Hospitals</option>
-         </select>
-       </label>
-        <label>
-       <select  className="Search-fields " term={this.state.location} onChange={this.handleLocationChange}>
-        <option value="">Select city</option>
-         <option value="Arlington">Arlington, Va</option>
-         <option value="Washington">Washington, DC</option>
-         <option value="New York">New York</option>
-         <option value="Los Angeles">Los Angeles, Ca</option>
-       </select>
-      </label>
-        </div>
-        <div className="SearchBar-sort-options">
-          <ul>
-            {this.renderSortByOptions()}
-          </ul>
-        </div>
-        <div className="SearchBar-submit">
-          <a onClick={this.handleSearch}> Search powered by <img src="/../../images/yelp.png" style={{width:70,height:55}}  /></a>
-        </div>
-      </div>
+
+        <Row>
+          <Col md={4}>
+
+              <div className="SearchBar-fields">
+                <label>
+               <select className="Search-term" term={this.state.value} onChange={this.handleTermChange}>
+                <option value="">Select Activity </option>
+                 <option value="Playgrounds">Playgrounds</option>
+                 <option value="Splash Parks">Splash Parks</option>
+                 <option value="Kid-Friendly Restaurants">Restaurants</option>
+                 <option value="Libraries">Libraries</option>
+                 <option value="Museums">Museums</option>
+                 <option value="Kid-Activities">Kid Events</option>
+                 <option value="Schools">Schools</option>
+                 <option value="Hospitals">Hospitals</option>
+               </select>
+             </label>
+             {/*<input className="Search-term" placeholder="City or Zip Code"  term={this.state.value} onChange={this.handleLocationChange} />*/}
+
+            <label>
+             <select  className="Search-fields" term={this.state.location} onChange={this.handleLocationChange}>
+              <option value="">Select city</option>
+               <option value="Arlington">Arlington, Va</option>
+               <option value="20011">Washington, DC</option>
+               <option value="New York">New York</option>
+               <option value="Los Angeles">Los Angeles, Ca</option>
+             </select>
+            </label>
+              </div>
+              <div className="SearchBar-sort-options">
+                <ul>
+                  {this.renderSortByOptions()}
+                </ul>
+              </div>
+              <div className="SearchBar-submit">
+                <a onClick={this.handleSearch}> Search powered by
+                 <img src={yelp} style={{width:70,height:55}} alt="Yelp" /></a>
+              </div>
+        </Col>
+        <Col md={8}>
+                  <div>
+
+                  </div>
+        </Col>
+  </Row>
+</div>
       );
     }
 }

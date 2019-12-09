@@ -53,38 +53,42 @@ app.use(passport.session()); // will call the deserializeUser
 // })
 // testing
 // app.get(
-//   "/auth/google/callback",
-//   (req, res, next) => {
-//     console.log(`req.user: ${req.user}`);
-//     console.log("======= /auth/google/callback was called! =====");
-//     next();
-//   },
-//   passport.authenticate("google", { failureRedirect: "/login" }),
-//   (req, res) => {
-//     res.redirect("/");
-//   }
-// );
-
+// 	'/auth/google/callback',
+// 	(req, res, next) => {
+// 		console.log(`req.user: ${req.user}`)
+// 		console.log('======= /auth/google/callback was called! =====')
+// 		next()
+// 	},
+// 	passport.authenticate('google', { failureRedirect: '/login' }),
+// 	(req, res) => {
+// 		res.redirect('/')
+// 	}
+// )
+/* Express app ROUTING */
+app.use("/auth", require("./server/auth"));
+app.use("/playgroups", require("./server/routes/playgroups"));
 // ==== if its production environment!
-if (process.env.NODE_ENV === "production") {
+console.log(process.env.NODE_ENV, "here");
+// process.env.NODE_ENV === 'production'
+if (true) {
   const path = require("path");
   console.log("YOU ARE IN THE PRODUCTION ENV");
-  app.use("/static", express.static(path.join(__dirname, "../build/static")));
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../build/"));
+  app.use(
+    "/static",
+    express.static(path.join(__dirname, "./client/build/static"))
+  );
+  app.get("*", (req, res) => {
+    console.log(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
   });
 }
 
-/* Express app ROUTING */
-app.use("/auth", require("./server/auth"));
-
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
-  console.log("OR =======");
+  console.log("====== ERROR =======");
   console.error(err.stack);
   res.status(500);
 });
-
 // ==== Starting Server =====
 server.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
