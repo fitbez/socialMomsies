@@ -47,7 +47,7 @@ class Navbar extends Component {
             </li>
             <li>
               <a href="/" className="logout" onClick={this.props.logout}>
-                Logout
+                <i class="fas fa-sign-out-alt"></i>
               </a>
             </li>
           </ul>
