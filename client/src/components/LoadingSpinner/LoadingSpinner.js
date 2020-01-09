@@ -2,45 +2,45 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const motion = props => keyframes`
-  0%,
-  100% {
-    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
-  }
   0% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(1800deg);
-    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotateY(3600deg);
+    transform: rotate(360deg);
   }
 `;
 
-const Wrapper = styled.div`
+const DualRingSpinner = styled.div`
   display: inline-block;
-  transform: translateZ(1px);
+  width: ${p => `${p.width}${p.sizeUnit}`};
+  height: ${p => `${p.height}${p.sizeUnit}`};
+  :after {
+    content: " ";
+    display: block;
+    width: ${p => `${p.size}${p.sizeUnit}`};
+    height: ${p => `${p.size}${p.sizeUnit}`};
+    margin: 15px;
+    border-radius: 50%;
+    border: 5px solid ${p => p.color};
+    border-color: ${p => p.color} transparent ${p => p.color} transparent;
+    animation: ${p => motion(p)} 1.2s linear infinite;
+  }
 `;
 
-const CircleSpinner = styled.div`
-  display: inline-block;
-  width: ${p => `${p.size}${p.sizeUnit}`};
-  height: ${p => `${p.size}${p.sizeUnit}`};
-  margin: 6px;
-  border-radius: 50%;
-  background: ${p => p.color};
-  animation: ${p => motion(p)} 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-`;
-
-const LoadingSpinner = ({ color, size, sizeUnit }) => (
-  <Wrapper>
-    <CircleSpinner color={color} size={size} sizeUnit={sizeUnit} />
-  </Wrapper>
+const LoadingSpinner = ({ color, size, sizeUnit, width, height }) => (
+  <DualRingSpinner
+    color={color}
+    size={size}
+    sizeUnit={sizeUnit}
+    width={width}
+    height={height}
+  />
 );
 
 LoadingSpinner.defaultProps = {
-  size: 50,
+  width: 64,
+  height: 64,
+  size: 46,
   color: "#00bfff",
   sizeUnit: "px"
 };
