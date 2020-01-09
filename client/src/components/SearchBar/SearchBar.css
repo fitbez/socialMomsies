@@ -9,7 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .SearchBar-sort-options ul {
@@ -47,7 +47,6 @@
 }
 
 .SearchBar-fields {
-  /* position: fixed; */
   display: inline-table;
   justify-content: left;
   margin-bottom: 2rem;
