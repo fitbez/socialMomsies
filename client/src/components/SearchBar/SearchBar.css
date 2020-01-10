@@ -101,27 +101,43 @@
   background-color: #a7874b;
 }
 
-@media only screen and (max-width: 560px) {
+@media screen and (max-width: 480px) {
   .SearchBar {
-    width: auto;
+    width: 100%;
     background-image: url("./kid.jpg");
+  }
+  .Search-fields {
+    width: 200px;
   }
   .Search-term {
     margin-right: 0;
     margin-bottom: 0.86rem;
+    width: 200px;
+    font-size: medium;
+    margin-top: 100px;
+  }
+  .Search-fields {
+    font-size: large;
+    margin: 0;
   }
   .SearchBar-sort-options ul {
     margin-left: 2rem;
     margin-right: 2rem;
+    width: 200px;
   }
 
   .SearchBar-fields {
     flex-direction: row;
     align-items: left;
+    width: 200px;
   }
 
   .SearchBar-fields input {
     margin-right: 0;
     margin-bottom: 0.86rem;
+    width: 75%;
+  }
+  .BusinessList {
+    width: 200px;
   }
 }

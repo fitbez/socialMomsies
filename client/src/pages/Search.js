@@ -46,7 +46,11 @@ class Search extends Component {
       <div className="Search">
         {this.state.alert && (
           <Alert
-            style={{ top: this.props.navbarHeight + 10 + "px" }}
+            style={{
+              top: this.props.navbarHeight + -25 + "px",
+              padding: "2.5px",
+              margin: 0
+            }}
             id="search-alert"
             bsStyle="danger"
           >
