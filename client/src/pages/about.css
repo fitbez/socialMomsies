@@ -44,3 +44,23 @@
   margin-left: 50px;
   padding: 0;
 }
+@media screen and (max-width: 768px) {
+  .About {
+    background-image: url("./social.jpeg");
+  }
+  .About h1 {
+    font-size: 70px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .About {
+    background-image: url("./social.jpeg");
+  }
+  .About h1 {
+    font-size: 70px;
+  }
+  .About p {
+    padding: 5px;
+    margin-right: 25px;
+  }
+}
