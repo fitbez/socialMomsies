@@ -78,9 +78,13 @@
     justify-content: center;
     align-items: flex-end;
     margin-right: 30px;
+    margin-left: 15px;
   }
   .navbar-nav > li > a {
     font-size: large;
     padding: 5px;
+  }
+  .logout {
+    margin-left: 30px;
   }
 }

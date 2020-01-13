@@ -124,12 +124,14 @@
     margin-left: 2rem;
     margin-right: 2rem;
     width: 200px;
+    opacity: 0.7;
   }
 
   .SearchBar-fields {
     flex-direction: row;
     align-items: left;
     width: 200px;
+    opacity: 0.7;
   }
 
   .SearchBar-fields input {
