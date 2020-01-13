@@ -77,9 +77,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
+    margin-right: 10px;
   }
   .navbar-nav > li > a {
-    font-size: larger;
+    font-size: 18px;
     padding: 5px;
   }
   .logout {
