@@ -22,6 +22,7 @@
   background-color: white;
   border-radius: 8px;
   width: 400px;
+  opacity: 0.5;
 }
 
 .SearchBar-sort-options li {
@@ -51,6 +52,8 @@
   justify-content: left;
   margin-bottom: 2rem;
   margin-left: 100px;
+  margin-top: 400px;
+  opacity: 0.5;
 }
 .Search-term {
   width: 400px;
@@ -132,6 +135,7 @@
     align-items: left;
     width: 200px;
     opacity: 0.7;
+    margin-top: 100px;
   }
 
   .SearchBar-fields input {

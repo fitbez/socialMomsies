@@ -63,7 +63,7 @@ class Search extends Component {
             <SearchBar search={this.searchYelp} />
           </Col>
           {loading ? (
-            <LoadingSpinner />
+            <LoadingSpinner className="loading" />
           ) : (
             <Col sm={8} md={8} className="business">
               <BusinessList businesses={this.state.businesses} />
