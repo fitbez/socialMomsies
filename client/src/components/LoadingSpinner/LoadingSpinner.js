@@ -21,7 +21,7 @@ const DualRingSpinner = styled.div`
     height: ${p => `${p.size}${p.sizeUnit}`};
     position: absolute;
     left: 45%
-    top: 10%;
+    top: 5%;
     margin: 15px;
     border-radius: 50%;
     border: 5px solid ${p => p.color};
