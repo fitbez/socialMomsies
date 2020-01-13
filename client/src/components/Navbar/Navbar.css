@@ -69,7 +69,7 @@
 /* Media Queries */
 @media screen and (max-width: 480px) {
   img {
-    width: 100px;
+    width: 130px;
     margin-right: 20px;
   }
   .inner-nav {
