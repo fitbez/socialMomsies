@@ -74,6 +74,9 @@ div.desc {
   .title {
     font-size: large;
   }
+  .media-body {
+    margin-right: 20px;
+  }
 }
 
 .clearfix:after {
