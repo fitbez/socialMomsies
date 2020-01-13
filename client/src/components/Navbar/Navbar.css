@@ -68,8 +68,8 @@
 
 /* Media Queries */
 @media screen and (max-width: 480px) {
-  img {
-    width: 50px;
+  .results img {
+    width: 130px;
     margin-right: 20px;
   }
   .inner-nav {
@@ -79,7 +79,7 @@
     align-items: flex-end;
   }
   .navbar-nav > li > a {
-    font-size: small;
+    font-size: larger;
     padding: 5px;
   }
   .logout {
