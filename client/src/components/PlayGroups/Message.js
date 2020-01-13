@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Row, Col } from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
 
 class Message extends Component {
 	
@@ -9,21 +9,27 @@ class Message extends Component {
 	
 	render() {
 		return (
-			<div className='panel panel-default' ref={element => {this.messageElement = element}}>
-				<Panel.Body style={{padding: '5px 15px 10px',}}>
-					<Row bsClass='row-fluid'>
-						<Col xs={2} sm={1} md={1} lg={1} style={{padding: '0px'}}>
-							<img alt='' src={this.props.message.sender.image} style={{textAlign: 'center', borderRadius: '50%', height: '100%', width: 'auto',}} />
-						</Col>
-						<Col xs={10} sm={11} md={11} lg={11} style={{padding: '0px'}}>
-							<h4>{this.props.message.sender.name}</h4><hr style={{margin: '5px',}} />
-							{this.props.message.body}
-						</Col>
-					</Row>
-				</Panel.Body>
+			
+			<div
+				className='media panel panel-default'
+				ref={element => {this.messageElement = element}}
+			>
+				{!this.isCurrentUser() && <Media.Right style={{padding: '10px'}}>{this.senderImage}</Media.Right>}
+				<Media.Body className='panel-body'>
+					<Media.Heading style={{/*textAlign: (!this.isCurrentUser() ? 'left' : 'right'),*/}}>{this.props.message.sender.name}</Media.Heading>
+					<hr style={{margin: '5px',}} />
+					<p style={{marginBottom: '0px'}}>{this.props.message.body}</p>
+				</Media.Body>
+				{this.isCurrentUser() && <Media.Left style={{padding: '10px'}}>{this.senderImage}</Media.Left>}
 			</div>
 		);
 	}
+	
+	isCurrentUser() {
+		return this.props.user._id === this.props.message.sender._id;
+	}
+	
+	senderImage = <img alt='' src={this.props.message.sender.image} width={50} height={50} style={{diplay: 'block', borderRadius: '50%',}} />;
 	
 }
 	

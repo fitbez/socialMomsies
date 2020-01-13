@@ -62,10 +62,10 @@ class App extends Component {
 						handleResize={this.handleNavbarResize}
 					/>
 					<Wrapper>
-						<Route exact path="/" render={props => (<About user={this.state.user} />)} hideNavigationBar={true} />
-						<Route exact path="/about" render={props => (<Search user={this.state.user} />)} />
-						<Route exact path="/home" render={props => (<Home user={this.state.user} />)} />
-						<Route exact path="/search" render={props => (<Search user={this.state.user} />)} />
+						<Route exact path="/" render={props => (<About user={this.state.user} navbarHeight={this.state.navbarHeight} />)} hideNavigationBar={true} />
+						<Route exact path="/about" render={props => (<Search user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
+						<Route exact path="/home" render={props => (<Home user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
+						<Route exact path="/search" render={props => (<Search user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
 						<Route exact path="/playgroup" render={props => (<Playgroup user={this.state.user} navbarHeight={this.state.navbarHeight} />)} />
 						<Route exact path="/login" component={Login} />
 					</Wrapper>

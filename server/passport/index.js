@@ -5,14 +5,14 @@ const User = require('../db/models/User')
 
 
 passport.serializeUser((user, done) => {
-	console.log('=== serialize ... called ===');
+	//console.log('=== serialize ... called ===');
 	//console.log(user); // the whole raw user object!
 	//console.log('---------');
 	done(null, /*{ _id: user._id }*/ user);
 });
 
 passport.deserializeUser((id, done) => {
-	console.log('deserialize ... called');
+	//console.log('deserialize ... called');
 	User.findOne(
 		{ _id: id },
 		'email name image playgroups invites',

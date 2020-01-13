@@ -18,12 +18,12 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const {
+    /*const {
       username,
       password
-    } = this.state
+    } = this.state*/
 
-    console.log('handleSubmit')
+    //console.log('handleSubmit')
 
     this.props._login()
     this.setState({
