@@ -71,6 +71,9 @@ div.desc {
   div.media-right {
     display: none;
   }
+  .title {
+    font-size: large;
+  }
 }
 
 .clearfix:after {
