@@ -1,11 +1,19 @@
 .Search {
-	position: relative;
+  position: relative;
+  overflow-x: hidden;
 }
 
 #search-alert {
-	position: absolute;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
-	z-index: 666;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 666;
+}
+@media screen and (max-width: 480px) {
+  .loading {
+    position: absolute;
+    top: 100px;
+  }
 }

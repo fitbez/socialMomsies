@@ -3,84 +3,80 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  justify-content:center;
-  background-image: url('./social.jpg');
+  justify-content: center;
+  background-image: url("./swing.jpg");
   background-color: #f4f4f4;
   background-size: cover;
   background-repeat: no-repeat;
-  height:100rem;
-  /*z-index: 1;*/
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .SearchBar-sort-options ul {
-  display:inline-table;
+  display: inline-table;
   justify-content: left;
   margin-bottom: 2rem;
-  margin-left:100px;
+  margin-left: 100px;
   color: black;
   border: 1px solid white;
   background-color: white;
   border-radius: 8px;
   width: 400px;
-
+  opacity: 0.5;
 }
 
 .SearchBar-sort-options li {
-  cursor:pointer;
+  cursor: pointer;
   width: 23rem;
   border-bottom: 0px solid #f6695e;
-  padding: 0 2rem ;
+  padding: 0 2rem;
   line-height: 1.13;
   text-align: left;
   font-weight: 600;
   font-size: 2rem;
-  transition: color .25s;
-
+  transition: color 0.25s;
 }
 
 .SearchBar-sort-options li:hover {
-  color:black ;
+  color: black;
 }
 
 .SearchBar-sort-options li.active,
 .SearchBar-sort-options li.active:hover {
   border-bottom: 0px solid #f6695e;
-  color:#f6695e;
+  color: #f6695e;
 }
 
 .SearchBar-fields {
-  /* position: fixed; */
-  display:inline-table;
+  display: inline-table;
   justify-content: left;
   margin-bottom: 2rem;
-  margin-left:100px;
+  margin-left: 100px;
+  margin-top: 400px;
+  opacity: 0.5;
 }
-.Search-term{
+.Search-term {
   width: 400px;
-  height:45px;
-  padding: .66rem 1rem;
+  height: 45px;
+  padding: 0.66rem 1rem;
   margin-right: 2.22rem;
   border: 1px solid white;
   border-radius: 4px;
   font-size: 2.5rem;
   font-weight: 500;
   background-color: white;
-    margin-bottom: 2rem;
-
+  margin-bottom: 2rem;
 }
-.Search-fields{
+.Search-fields {
   width: 400px;
-  height:45px;
-  padding: .66rem 1rem;
+  height: 45px;
+  padding: 0.66rem 1rem;
   margin-right: 2.22rem;
   border: 1px solid white;
   border-radius: 4px;
   font-size: 2.5rem;
   font-weight: 500;
   background-color: white;
-
-
 }
 
 .SearchBar-fields input:last-child {
@@ -89,20 +85,18 @@
 
 .SearchBar-submit {
   text-align: left;
-  margin-left:140px;
-  margin-bottom:400px;
-
-
+  margin-left: 140px;
+  margin-bottom: 400px;
 }
 
 .SearchBar-submit a {
   border-radius: 4px;
-  padding: .72rem 1.7rem;
+  padding: 0.72rem 1.7rem;
   background-color: #f6695e;
   color: #ffffff;
   font-weight: 600;
   font-size: 20px;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
 }
 
 .SearchBar-submit a:hover {
@@ -110,30 +104,46 @@
   background-color: #a7874b;
 }
 
-
-
-@media only screen and (max-width:560px) {
+@media screen and (max-width: 480px) {
   .SearchBar {
-    width: auto;
-    background-image: url('./kid.jpg');
+    width: 100%;
+    background-image: url("./kid.jpg");
   }
-  .Search-term{
+  .Search-fields {
+    width: 200px;
+  }
+  .Search-term {
     margin-right: 0;
-    margin-bottom: .86rem;
+    margin-bottom: 0.86rem;
+    width: 200px;
+    font-size: medium;
+    margin-top: 180px;
+  }
+  .Search-fields {
+    font-size: large;
+    margin: 0;
   }
   .SearchBar-sort-options ul {
     margin-left: 2rem;
     margin-right: 2rem;
+    width: 200px;
+    opacity: 0.7;
   }
 
   .SearchBar-fields {
     flex-direction: row;
     align-items: left;
+    width: 200px;
+    opacity: 0.7;
+    margin-top: 100px;
   }
 
   .SearchBar-fields input {
     margin-right: 0;
-    margin-bottom: .86rem;
+    margin-bottom: 0.86rem;
+    width: 75%;
   }
-
+  .BusinessList {
+    width: 200px;
+  }
 }

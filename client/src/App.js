@@ -47,7 +47,7 @@ class App extends Component {
 		}
 	};
 
-	
+
 	render() {
 		if(this.state.loading) {
 			// fetching from the server to discover if the user is logged in or not
