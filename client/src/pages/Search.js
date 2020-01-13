@@ -65,7 +65,7 @@ class Search extends Component {
           {loading ? (
             <LoadingSpinner />
           ) : (
-            <Col sm={8} md={8}>
+            <Col sm={8} md={8} className="business">
               <BusinessList businesses={this.state.businesses} />
             </Col>
           )}
